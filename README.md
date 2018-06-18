@@ -80,7 +80,7 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
   42 passing (79ms)</code></pre>
 </details>
 
-You can use the TypeScript typings provided, or [read the docs provided in the repo](doc/README.md).
+You can use the TypeScript typings provided, or [read the docs provided in the repo](doc/README.md). There's even a handy [Getting Started guide](https://github.com/allotropelabs/carbyne/wiki/Getting-Started-with-Carbyne)!
 
 Carbyne's not on NPM yet, but when it is, you'll be able to install it with the simple command:
 ```
