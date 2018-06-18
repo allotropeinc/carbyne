@@ -80,4 +80,4 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
   42 passing (79ms)</code></pre>
 </details>
 
-You can use the TypeScript typings provided, or [read the docs provided in the repo](docs/README.md).
+You can use the TypeScript typings provided, or [read the docs provided in the repo](doc/README.md).
