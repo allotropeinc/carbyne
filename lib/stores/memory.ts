@@ -69,7 +69,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	}
 
 	async getType ( id : string ) : Promise<TCarbyneTypeObj> {
-		return ( await this.getRef ( id ) ).type
+		return <TCarbyneTypeObj> ( await this.getRef ( id ) ).type
 	}
 
 	async getLength ( id : string ) {
@@ -80,7 +80,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		const ref = ( await this.getRef ( id ) )
 
 		if ( ref.type === 'object' ) {
-			return Object.keys ( ref.obj )
+			return Object.keys ( ( <TCarbyneRefInternalObject> ref ).obj )
 		} else if ( ref.type === 'array' ) {
 			return [ ...( <TCarbyneRefInternalArray> ref ).obj.keys () ].map ( ( x ) => x.toString () )
 		}

@@ -57,7 +57,7 @@ const db = new Carbyne ( new CarbyneMemoryStore () )
 
 ⊕ **new Carbyne**(store?: *[ICarbyneStore](../interfaces/icarbynestore.md)*): [Carbyne](carbyne.md)
 
-*Defined in [lib/carbyne.ts:127](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L127)*
+*Defined in lib/carbyne.ts:128*
 
 Create the database.
 
@@ -79,7 +79,7 @@ ___
 
 **● customObjects**: *`object`*
 
-*Defined in [lib/carbyne.ts:127](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L127)*
+*Defined in lib/carbyne.ts:128*
 
 The registry of custom objects the database can use.
 
@@ -94,7 +94,7 @@ ___
 
 **● deserializeCache**: *[ICarbyneDesCache](../interfaces/icarbynedescache.md)*
 
-*Defined in [lib/carbyne.ts:112](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L112)*
+*Defined in lib/carbyne.ts:113*
 
 The cache of deserialized items that are used to protect against infinite recursion and copies.
 
@@ -105,7 +105,7 @@ ___
 
 **● serializeCache**: *[ICarbyneCache](../interfaces/icarbynecache.md)*
 
-*Defined in [lib/carbyne.ts:106](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L106)*
+*Defined in lib/carbyne.ts:107*
 
 The cache of serialized items that are used to protect against infinite recursion and copies.
 
@@ -116,7 +116,7 @@ ___
 
 **● store**: *[ICarbyneStore](../interfaces/icarbynestore.md)*
 
-*Defined in [lib/carbyne.ts:122](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L122)*
+*Defined in lib/carbyne.ts:123*
 
 The `ICarbyneStore` currently in use by the database.
 
@@ -127,7 +127,7 @@ ___
 
 **● symbolIds**: *`any`*
 
-*Defined in [lib/carbyne.ts:117](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L117)*
+*Defined in lib/carbyne.ts:118*
 
 Used so we don't make unnecessary copies of symbols with the same ID.
 
@@ -141,7 +141,7 @@ ___
 
 ▸ **clear**(newObj?: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/carbyne.ts:479](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L479)*
+*Defined in lib/carbyne.ts:480*
 
 Clears the database, immediately and irreversibly dropping all data. `newObj` is optional and specifies what you want ID `'root'` to be replaced with. Defaults to empty object (`{}`)
 
@@ -160,7 +160,7 @@ ___
 
 ▸ **deserialize**(obj: * `string` &#124; [TCarbyneValue](../#tcarbynevalue)*): `Promise`<`any`>
 
-*Defined in [lib/carbyne.ts:362](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L362)*
+*Defined in lib/carbyne.ts:363*
 
 Deserializes an object specified by ID into storage. Utilizes recursion and caching to support circular references and references to past deserialized objects.
 
@@ -180,7 +180,7 @@ ___
 
 ▸ **getData**(obj: *`any`*): `Promise`<`any`>
 
-*Defined in [lib/carbyne.ts:638](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L638)*
+*Defined in lib/carbyne.ts:639*
 
 Gets the data of `obj`. `obj` can be an ID, reference, or deserialized object.
 
@@ -200,7 +200,7 @@ ___
 
 ▸ **getKey**(obj: *`any`*, key: * `string` &#124; `number`*): `Promise`< `object` &#124; `object`>
 
-*Defined in [lib/carbyne.ts:568](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L568)*
+*Defined in lib/carbyne.ts:569*
 
 Gets the key `key` of object `obj` and returns it.
 
@@ -220,7 +220,7 @@ ___
 
 ▸ **getType**(obj: *`any`*): `Promise`< [TCarbyneTypeExt](../#tcarbynetypeext) &#124; `string`>
 
-*Defined in [lib/carbyne.ts:158](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L158)*
+*Defined in lib/carbyne.ts:159*
 
 Gets the type of an object. This is used internally by `serialize()` to figure out what to store objects as.
 
@@ -241,7 +241,7 @@ ___
 
 ▸ **push**(obj: *`any`*, value: * `string` &#124; `number`*): `Promise`<`void`>
 
-*Defined in [lib/carbyne.ts:586](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L586)*
+*Defined in lib/carbyne.ts:587*
 
 Pushes `value` to array `obj`. Works with objects too, I guess. It honestly doesn't care.
 
@@ -261,7 +261,7 @@ ___
 
 ▸ **registerCustomObject**(name: *`string`*, cls: *[ICarbyneCustomObjectConstructor](../interfaces/icarbynecustomobjectconstructor.md)*): `Promise`<`void`>
 
-*Defined in [lib/carbyne.ts:650](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L650)*
+*Defined in lib/carbyne.ts:651*
 
 Registers a new custom object. `name` is the `type`, and `cls` is the class (not an instance of it).
 
@@ -281,7 +281,7 @@ ___
 
 ▸ **serialize**(obj: *`any`*, id: *`string`*): `Promise`<[TCarbyneValue](../#tcarbynevalue)>
 
-*Defined in [lib/carbyne.ts:202](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L202)*
+*Defined in lib/carbyne.ts:203*
 
 Serializes an object into storage. Utilizes recursion and caching to support circular references and references to past serialized objects.
 
@@ -302,7 +302,7 @@ ___
 
 ▸ **setData**(obj: *`any`*, data: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/carbyne.ts:615](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L615)*
+*Defined in lib/carbyne.ts:616*
 
 Sets the data of `obj` to `data`. Only use on custom objects. `obj` can be an ID, reference, or deserialized object.
 
@@ -322,7 +322,7 @@ ___
 
 ▸ **setKey**(obj: *`any`*, key: * `string` &#124; `number`*, value: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/carbyne.ts:508](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L508)*
+*Defined in lib/carbyne.ts:509*
 
 Sets the key `key` of object `obj` to `value`. Pretty self-explanatory.
 
@@ -343,7 +343,7 @@ ___
 
 ▸ **toObject**(obj?: *`any`*): `Promise`<`any`>
 
-*Defined in [lib/carbyne.ts:496](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L496)*
+*Defined in lib/carbyne.ts:497*
 
 Deserializes an object, specified by ID, value, or reference, and returns it.
 
@@ -363,7 +363,7 @@ ___
 
 ▸ **fromObject**(obj: *`any`*, store?: *[ICarbyneStore](../interfaces/icarbynestore.md)*): `Promise`<[Carbyne](carbyne.md)>
 
-*Defined in [lib/carbyne.ts:457](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L457)*
+*Defined in lib/carbyne.ts:458*
 
 Creates a Carbyne model from an object. Be advised this does wipe the database.
 
@@ -383,7 +383,7 @@ ___
 
 ▸ **getValue**(value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`any`>
 
-*Defined in [lib/carbyne.ts:326](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L326)*
+*Defined in lib/carbyne.ts:327*
 
 Converts a `TCarbyneValue` into its primitive counterpart. Does not support references, objects, arrays, Symbols, or custom objects.
 
@@ -403,7 +403,7 @@ ___
 
 ▸ **resolveId**(obj: *`any`*): `Promise`<`string`>
 
-*Defined in [lib/carbyne.ts:547](https://github.com/allotropelabs/carbyne/blob/8ef9061/lib/carbyne.ts#L547)*
+*Defined in lib/carbyne.ts:548*
 
 Resolves the ID of `obj`. Can take strings, references, and deserialized objects too.
 *__throws__*: {TypeError} If the object does not exist in the database.
