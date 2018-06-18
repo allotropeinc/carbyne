@@ -16,7 +16,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	/**
 	 * Gets an object specified by ID.
 	 * @param {string} id
-	 * @returns {Promise<TCarbyneRefInternal>
+	 * @returns {Promise<TCarbyneRefInternal>}
 	 */
 	protected async getRef ( id : string ) : Promise<TCarbyneRef & { obj : any }> {
 		let toReturn
