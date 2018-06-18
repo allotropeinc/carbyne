@@ -81,3 +81,8 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
 </details>
 
 You can use the TypeScript typings provided, or [read the docs provided in the repo](doc/README.md).
+
+Carbyne's not on NPM yet, but when it is, you'll be able to install it with the simple command:
+```
+npm i carbyne-db
+```
