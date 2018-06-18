@@ -57,7 +57,7 @@
 
 **ΤTCarbyneDesArray**: *`Array`<`any`>*
 
-*Defined in [lib/types.ts:136](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L136)*
+*Defined in [lib/types.ts:136](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L136)*
 
 [ICarbyneDesCache](interfaces/icarbynedescache.md)
 
@@ -69,7 +69,7 @@ ___
 **ΤTCarbyneDesCached**: * [TCarbyneDesObject](#tcarbynedesobject) &#124; [TCarbyneDesArray](#tcarbynedesarray) &#124; `Symbol` &#124; [ICarbyneCustomObject](interfaces/icarbynecustomobject.md)
 *
 
-*Defined in [lib/types.ts:141](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L141)*
+*Defined in [lib/types.ts:141](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L141)*
 
 [ICarbyneDesCache](interfaces/icarbynedescache.md)
 
@@ -80,7 +80,7 @@ ___
 
 **ΤTCarbyneDesObject**: *`object`*
 
-*Defined in [lib/types.ts:131](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L131)*
+*Defined in [lib/types.ts:131](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L131)*
 
 [ICarbyneDesCache](interfaces/icarbynedescache.md)
 
@@ -96,7 +96,7 @@ ___
 **ΤTCarbyneRef**: * [ICarbyneRefObject](interfaces/icarbynerefobject.md) &#124; [ICarbyneRefArray](interfaces/icarbynerefarray.md) &#124; [ICarbyneRefSymbol](interfaces/icarbynerefsymbol.md)
 *
 
-*Defined in [lib/types.ts:84](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L84)*
+*Defined in [lib/types.ts:84](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L84)*
 
 A ref value, stored in [TCarbyneRefs](#tcarbynerefs).
 
@@ -108,7 +108,7 @@ ___
 **ΤTCarbyneRefInternal**: * [TCarbyneRefInternalObject](#tcarbynerefinternalobject) &#124; [TCarbyneRefInternalArray](#tcarbynerefinternalarray) &#124; [TCarbyneRefInternalSymbol](#tcarbynerefinternalsymbol)
 *
 
-*Defined in [lib/types.ts:112](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L112)*
+*Defined in [lib/types.ts:112](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L112)*
 
 Internal refs used by [ICarbyneStore](interfaces/icarbynestore.md) methods.
 
@@ -120,7 +120,7 @@ ___
 **ΤTCarbyneRefInternalArray**: * `object` & [ICarbyneRefArray](interfaces/icarbynerefarray.md)
 *
 
-*Defined in [lib/types.ts:98](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L98)*
+*Defined in [lib/types.ts:98](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L98)*
 
 See [TCarbyneRefInternal](#tcarbynerefinternal)
 
@@ -132,7 +132,7 @@ ___
 **ΤTCarbyneRefInternalObject**: * `object` & [ICarbyneRefObject](interfaces/icarbynerefobject.md)
 *
 
-*Defined in [lib/types.ts:89](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L89)*
+*Defined in [lib/types.ts:89](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L89)*
 
 See [TCarbyneRefInternal](#tcarbynerefinternal)
 
@@ -144,7 +144,7 @@ ___
 **ΤTCarbyneRefInternalSymbol**: * `object` & [ICarbyneRefSymbol](interfaces/icarbynerefsymbol.md)
 *
 
-*Defined in [lib/types.ts:105](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L105)*
+*Defined in [lib/types.ts:105](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L105)*
 
 See [TCarbyneRefInternal](#tcarbynerefinternal)
 
@@ -155,7 +155,7 @@ ___
 
 **ΤTCarbyneRefs**: *`object`*
 
-*Defined in [lib/types.ts:117](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L117)*
+*Defined in [lib/types.ts:117](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L117)*
 
 Internal ref store used by [ICarbyneStore](interfaces/icarbynestore.md) methods.
 
@@ -171,7 +171,7 @@ ___
 **ΤTCarbyneTypeExt**: * [TCarbyneTypeGeneral](#tcarbynetypegeneral) &#124; [TCarbyneTypeImplicit](#tcarbynetypeimplicit) &#124; [TCarbyneTypeObj](#tcarbynetypeobj)
 *
 
-*Defined in [lib/types.ts:31](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L31)*
+*Defined in [lib/types.ts:31](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L31)*
 
 All types.
 
@@ -183,7 +183,7 @@ ___
 **ΤTCarbyneTypeGeneral**: * "bool" &#124; "number" &#124; "string" &#124; "reference"
 *
 
-*Defined in [lib/types.ts:4](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L4)*
+*Defined in [lib/types.ts:4](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L4)*
 
 General types that have \[\[TCarbyneValueGeneral.data\]\].
 
@@ -195,7 +195,7 @@ ___
 **ΤTCarbyneTypeImplicit**: * "null" &#124; "undefined" &#124; "pinfinity" &#124; "ninfinity" &#124; "nan"
 *
 
-*Defined in [lib/types.ts:13](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L13)*
+*Defined in [lib/types.ts:13](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L13)*
 
 Implicit types that have no `data` property.
 
@@ -207,7 +207,7 @@ ___
 **ΤTCarbyneTypeObj**: * "object" &#124; "array" &#124; "symbol"
 *
 
-*Defined in [lib/types.ts:23](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L23)*
+*Defined in [lib/types.ts:23](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L23)*
 
 Object types that have \[\[TCarbyneRefInternal.obj\]\].
 
@@ -219,7 +219,7 @@ ___
 **ΤTCarbyneValue**: * [TCarbyneValueGeneral](#tcarbynevaluegeneral) &#124; [TCarbyneValueImplicit](#tcarbynevalueimplicit)
 *
 
-*Defined in [lib/types.ts:55](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L55)*
+*Defined in [lib/types.ts:55](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L55)*
 
 All values.
 
@@ -230,7 +230,7 @@ ___
 
 **ΤTCarbyneValueGeneral**: *`object`*
 
-*Defined in [lib/types.ts:40](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L40)*
+*Defined in [lib/types.ts:40](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L40)*
 
 General values where additional info is required other than the [TCarbyneTypeGeneral](#tcarbynetypegeneral).
 
@@ -247,7 +247,7 @@ ___
 
 **ΤTCarbyneValueImplicit**: *`object`*
 
-*Defined in [lib/types.ts:48](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L48)*
+*Defined in [lib/types.ts:48](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/types.ts#L48)*
 
 Implicit values where [TCarbyneTypeImplicit](#tcarbynetypeimplicit) describes the value.
 
@@ -265,7 +265,7 @@ ___
 
 **generalTypes**: *`object`*
 
-*Defined in [lib/carbyne.ts:27](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L27)*
+*Defined in [lib/carbyne.ts:27](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L27)*
 
 The general types, that have a `data` property.
 
@@ -275,7 +275,7 @@ The general types, that have a `data` property.
 
 **● bool**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:31](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L31)*
+*Defined in [lib/carbyne.ts:31](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L31)*
 
 Booleans.
 
@@ -286,7 +286,7 @@ ___
 
 **● number**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:35](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L35)*
+*Defined in [lib/carbyne.ts:35](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L35)*
 
 Numbers.
 
@@ -297,7 +297,7 @@ ___
 
 **● reference**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:43](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L43)*
+*Defined in [lib/carbyne.ts:43](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L43)*
 
 References to other objects (custom or otherwise).
 
@@ -308,7 +308,7 @@ ___
 
 **● string**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:39](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L39)*
+*Defined in [lib/carbyne.ts:39](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L39)*
 
 Strings.
 
@@ -321,7 +321,7 @@ ___
 
 **implicitTypes**: *`object`*
 
-*Defined in [lib/carbyne.ts:49](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L49)*
+*Defined in [lib/carbyne.ts:49](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L49)*
 
 The implicit types, do not have a `data` property.
 
@@ -331,7 +331,7 @@ The implicit types, do not have a `data` property.
 
 **● nan**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:69](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L69)*
+*Defined in [lib/carbyne.ts:69](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L69)*
 
 The literal `NaN`.
 
@@ -342,7 +342,7 @@ ___
 
 **● ninfinity**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:65](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L65)*
+*Defined in [lib/carbyne.ts:65](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L65)*
 
 The literal `-Infinity`.
 
@@ -353,7 +353,7 @@ ___
 
 **● null**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:53](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L53)*
+*Defined in [lib/carbyne.ts:53](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L53)*
 
 The literal `null`.
 
@@ -364,7 +364,7 @@ ___
 
 **● pinfinity**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:61](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L61)*
+*Defined in [lib/carbyne.ts:61](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L61)*
 
 The literal `Infinity`.
 
@@ -375,7 +375,7 @@ ___
 
 **● undefined**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:57](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L57)*
+*Defined in [lib/carbyne.ts:57](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L57)*
 
 The literal `undefined`.
 
@@ -388,7 +388,7 @@ ___
 
 **objTypes**: *`object`*
 
-*Defined in [lib/carbyne.ts:75](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L75)*
+*Defined in [lib/carbyne.ts:75](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L75)*
 
 The object types, have a `obj` attribute with an object inside.
 
@@ -398,7 +398,7 @@ The object types, have a `obj` attribute with an object inside.
 
 **● array**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:83](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L83)*
+*Defined in [lib/carbyne.ts:83](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L83)*
 
 The array type has an `Array` as the `obj` property.
 
@@ -409,7 +409,7 @@ ___
 
 **● object**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:79](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L79)*
+*Defined in [lib/carbyne.ts:79](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L79)*
 
 The object type has an `Object` as the `obj` property.
 
@@ -420,7 +420,7 @@ ___
 
 **● symbol**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:87](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/carbyne.ts#L87)*
+*Defined in [lib/carbyne.ts:87](https://github.com/allotropelabs/carbyne/blob/8d0b8b3/lib/carbyne.ts#L87)*
 
 The symbol type has no `obj` property. Symbols are immutable.
 
