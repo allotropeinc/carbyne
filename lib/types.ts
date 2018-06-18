@@ -21,12 +21,16 @@ export type TCarbyneTypeExt =
 	TCarbyneTypeImplicit |
 	TCarbyneTypeObj
 
-export type TCarbyneValue = {
+export type TCarbyneValueGeneral = {
 	type : TCarbyneTypeGeneral,
 	data : any
-} | {
+}
+
+export type TCarbyneValueImplicit = {
 	type : TCarbyneTypeImplicit
 }
+
+export type TCarbyneValue = TCarbyneValueGeneral | TCarbyneValueImplicit
 
 export interface ICarbyneRefObject {
 	type : 'object'
@@ -58,16 +62,34 @@ export type TCarbyneRefs = {
 	[ id : string ] : TCarbyneRefInternal
 }
 
-export type TCarbyneCachedObject = {
+/*export type TCarbyneCachedObject = {
 	[ key : string ] : TCarbyneValue
 }
 
 export type TCarbyneCachedArray = Array<TCarbyneValue>
 
-export type TCarbyneCached = TCarbyneCachedObject | TCarbyneCachedArray | Symbol | ICarbyneCustomObject
+export type TCarbyneCachedCustomObject = {
+	data : any
+}
+
+export type TCarbyneCached = TCarbyneCachedObject | TCarbyneCachedArray | Symbol | TCarbyneCachedCustomObject
 
 export interface ICarbyneCache {
 	[ id : string ] : TCarbyneCached
+}*/
+
+export interface ICarbyneCache {
+	[ id : string ] : TCarbyneValue
+}
+
+export type TCarbyneDesObject = { [ key : string ] : any }
+
+export type TCarbyneDesArray = Array<any>
+
+export type TCarbyneDesCached = TCarbyneDesObject | TCarbyneDesArray | Symbol | ICarbyneCustomObject
+
+export interface ICarbyneDesCache {
+	[ id : string ] : TCarbyneDesCached
 }
 
 export interface ICarbyneMemoryModel {
@@ -78,6 +100,7 @@ export interface ICarbyneMemoryModel {
 export interface ICarbyneStore {
 	/**
 	 * Clears the database of any data, setting the root to `newRoot` or {} (empty object).
+	 *
 	 * @param {any} newRoot
 	 * @returns {Promise<void>}
 	 */
@@ -85,12 +108,14 @@ export interface ICarbyneStore {
 
 	/**
 	 * Gets a new ID to use for objects.
+	 *
 	 * @returns {Promise<string>}
 	 */
 	genID () : Promise<string>
 
 	/**
 	 * Sets a reference by ID.
+	 *
 	 * @param {string} id
 	 * @param obj
 	 * @returns {Promise<void>}
@@ -102,30 +127,33 @@ export interface ICarbyneStore {
 
 	/**
 	 * Gets the value of a key in an object.
-	 * @param {any} obj
+	 *
+	 * @param {string} id
 	 * @param {number | string} key
 	 * @returns {Promise<TCarbyneValue>}
 	 */
 	getKey (
-		obj : any,
+		id : string,
 		key : number | string
 	) : Promise<TCarbyneValue>
 
 	/**
 	 * Sets the value of a key in an object.
-	 * @param {any} obj
+	 *
+	 * @param {string} id
 	 * @param {number | string} key
 	 * @param {TCarbyneValue} value
 	 * @returns {Promise<void>}
 	 */
 	setKey (
-		obj : any,
+		id : string,
 		key : number | string,
 		value : TCarbyneValue
 	) : Promise<void>
 
 	/**
 	 * Gets the type of an object specified by ID.
+	 *
 	 * @param {string} id
 	 * @returns {Promise<TCarbyneTypeObj>}
 	 */
@@ -133,6 +161,7 @@ export interface ICarbyneStore {
 
 	/**
 	 * Gets the length of an array specified by ID.
+	 *
 	 * @param {string} id
 	 * @returns {Promise<number>}
 	 */
@@ -140,6 +169,7 @@ export interface ICarbyneStore {
 
 	/**
 	 * Gets the keys of an object specified by ID.
+	 *
 	 * @param {string} id
 	 * @returns {Promise<string[]>}
 	 */
@@ -147,6 +177,7 @@ export interface ICarbyneStore {
 
 	/**
 	 * Pushes an object to an array.
+	 *
 	 * @param {string} id
 	 * @param {TCarbyneValue} value
 	 */
@@ -157,6 +188,7 @@ export interface ICarbyneStore {
 
 	/**
 	 * Gets the data of a custom object.
+	 *
 	 * @param {string} id
 	 * @returns {Promise<any>}
 	 */
@@ -164,6 +196,7 @@ export interface ICarbyneStore {
 
 	/**
 	 * Sets the data of a custom object.
+	 *
 	 * @param {string} id
 	 * @param {any} data
 	 * @returns {Promise<void>}

@@ -4,40 +4,79 @@ import {
 	ICarbyneCache,
 	ICarbyneCustomObject,
 	ICarbyneCustomObjectConstructor,
+	ICarbyneDesCache,
 	ICarbyneStore,
+	TCarbyneDesArray,
+	TCarbyneDesObject,
 	TCarbyneRefInternal,
 	TCarbyneTypeExt,
 	TCarbyneTypeObj,
-	TCarbyneValue
+	TCarbyneValue,
+	TCarbyneValueGeneral
 } from './index'
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-const generalTypes = {
+/**
+ * The general types, that have a `data` property.
+ *
+ * @type {Object}
+ */
+export const generalTypes = {
 	bool      : true,
 	number    : true,
 	string    : true,
 	reference : true
 }
 
-const objTypes = {
+/**
+ * The implicit types, do not have a `data` property.
+ *
+ * @type {Object}
+ */
+export const implicitTypes = {
+	null      : true,
+	undefined : true,
+	pinfinity : true,
+	ninfinity : true,
+	nan       : true
+}
+
+/**
+ * The object types, have a `obj` attribute with an object inside.
+ *
+ * @type {Object}
+ */
+export const objTypes = {
 	object : true,
 	array  : true,
 	symbol : true
 }
 
+/**
+ * The representation of a Carbyne database.
+ *
+ * Example:
+ *
+ * ```typescript
+ * import { Carbyne, CarbyneMemoryStore } from 'carbyne-db'
+ *
+ * const db = new Carbyne ( new CarbyneMemoryStore () )
+ * ```
+ */
 export class Carbyne {
-	protected serializeCache : any
-	protected deserializeCache : ICarbyneCache
+	protected serializeCache : ICarbyneCache
+	protected deserializeCache : ICarbyneDesCache
 	protected symbolIds : any
 	protected store : ICarbyneStore
 	protected customObjects : { [ name : string ] : ICarbyneCustomObjectConstructor }
 
 	/**
-	 * A model for a Carbyne database.
-	 * @param {ICarbyneStore} store
+	 * Create the database.
+	 *
+	 * @param {ICarbyneStore} store The store to use for the database.
 	 */
 	constructor ( store? : ICarbyneStore ) {
 		if ( !store ) {
@@ -56,9 +95,12 @@ export class Carbyne {
 	}
 
 	/**
-	 * Gets the type of an object.
-	 * @param obj
-	 * @returns {TCarbyneTypeExt}
+	 * Gets the type of an object. This is used internally by `serialize()` to
+	 * figure out what to store objects as.
+	 *
+	 * @param obj The object to get the type of.
+	 * @returns {Promise<TCarbyneTypeExt | string>} Returns `TCarbyneTypeExt` if
+	 * it's a recognized type, or `string` if it's a custom type.
 	 */
 	protected async getType ( obj : any ) : Promise<TCarbyneTypeExt | string> {
 		const type = typeof obj
@@ -97,10 +139,12 @@ export class Carbyne {
 	}
 
 	/**
-	 * Serializes an object into storage.
-	 * @param obj
-	 * @param {string} id
-	 * @returns {Promise<TCarbyneValue>}
+	 * Serializes an object into storage. Utilizes recursion and caching to
+	 * support circular references and references to past serialized objects.
+	 *
+	 * @param obj The object to serialize. Can be anything, honestly.
+	 * @param {string} id The ID to give the new object. This is important.
+	 * @returns {Promise<TCarbyneValue>} The serialized object.
 	 */
 	protected async serialize (
 		obj : any,
@@ -220,9 +264,11 @@ export class Carbyne {
 	}
 
 	/**
-	 * Gets a regular value from a Carbyne value.
-	 * @param {TCarbyneValue} value
-	 * @returns {Promise}
+	 * Converts a `TCarbyneValue` into its primitive counterpart. Does not
+	 * support references, objects, arrays, Symbols, or custom objects.
+	 *
+	 * @param {TCarbyneValue} value The value to convert.
+	 * @returns {Promise<any>} The new primitive after conversion.
 	 */
 	protected static async getValue (
 		value : TCarbyneValue
@@ -230,7 +276,7 @@ export class Carbyne {
 		if ( value.type === 'reference' ) {
 			throw new TypeError ( 'references are not supported by getValue' )
 		} else if ( generalTypes.hasOwnProperty ( value.type ) ) {
-			return ( <any> value )[ 'data' ]
+			return ( <TCarbyneValueGeneral> value ).data
 		} else {
 			const type = value.type
 
@@ -252,9 +298,13 @@ export class Carbyne {
 	}
 
 	/**
-	 * Converts a Carbyne object into a regular object.
-	 * @param {string | TCarbyneValue} obj
-	 * @returns {Promise}
+	 * Deserializes an object specified by ID into storage. Utilizes recursion
+	 * and caching to support circular references and references to past
+	 * deserialized objects.
+	 *
+	 * @param {string | TCarbyneValue} obj The `string` ID or `TCarbyneValue`
+	 * value to deserialize.
+	 * @returns {Promise<any>} The deserialized object.
 	 */
 	protected async deserialize (
 		obj : string | TCarbyneValue
@@ -273,7 +323,7 @@ export class Carbyne {
 				const type = await this.store.getType ( id )
 
 				if ( type === 'object' ) {
-					const newObj = this.deserializeCache[ id ] = <any> {}
+					const newObj = this.deserializeCache[ id ] = <TCarbyneDesObject> {}
 					const keys = await this.store.getKeys ( id )
 
 					for (
@@ -299,7 +349,7 @@ export class Carbyne {
 						{ value : id }
 					)
 				} else if ( type === 'array' ) {
-					const newObj = this.deserializeCache[ id ] = []
+					const newObj = this.deserializeCache[ id ] = <TCarbyneDesArray> []
 					const length = await this.store.getLength ( id )
 
 					for (
@@ -313,9 +363,9 @@ export class Carbyne {
 						value = await this.store.getKey (
 							id,
 							i
-						);
+						)
 
-						( <Array<any>> newObj ).push ( await this.deserialize ( value ) )
+						newObj.push ( await this.deserialize ( value ) )
 					}
 
 					Object.defineProperty (
@@ -343,9 +393,12 @@ export class Carbyne {
 	}
 
 	/**
-	 * Creates a Carbyne model from a regular object.
-	 * @param obj
-	 * @param {ICarbyneStore} store
+	 * Creates a Carbyne model from an object. Be advised this does wipe the
+	 * database.
+	 *
+	 * @param obj The object to use as ID `'root'`.
+	 * @param {ICarbyneStore} store The store to use. Defaults to
+	 * `CarbyneMemoryStore`.
 	 * @returns {Promise<Carbyne>}
 	 */
 	static async fromObject (
@@ -365,6 +418,9 @@ export class Carbyne {
 
 	/**
 	 * Clears the database, immediately and irreversibly dropping all data.
+	 * `newObj` is optional and specifies what you want ID `'root'` to be
+	 * replaced with. Defaults to empty object (`{}`)
+	 *
 	 * @returns {Promise<void>}
 	 */
 	async clear ( newObj? : any ) {
@@ -377,13 +433,25 @@ export class Carbyne {
 	}
 
 	/**
-	 * Converts this Carbyne model into an object and returns it.
-	 * @returns {Promise}
+	 * Deserializes an object, specified by ID, value, or reference, and returns
+	 * it.
+	 *
+	 *
+	 * @param obj The object or ID to deserialize. Defaults to `'root'`.
+	 * @returns {Promise<any>} The deserialized object.
 	 */
 	async toObject ( obj? : any ) {
 		return await this.deserialize ( obj || 'root' )
 	}
 
+	/**
+	 * Sets the key `key` of object `obj` to `value`. Pretty self-explanatory.
+	 *
+	 * @param obj The object or ID to target.
+	 * @param {string | number} key The key to target.
+	 * @param value The value to set `obj[key]` to.
+	 * @returns {Promise<void>}
+	 */
 	async setKey (
 		obj : any,
 		key : string | number,
@@ -411,55 +479,62 @@ export class Carbyne {
 		)
 
 		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( obj._id ) ) {
-			( <any> this.deserializeCache )[ obj._id ][ key ] = await this.deserialize ( serialized )
+			( <TCarbyneDesObject> this.deserializeCache [ obj._id ] )[ key ] = await this.deserialize ( serialized )
 		}
 	}
 
 	/**
-	 * Gets `key` of `obj`. `obj` can be an ID, reference, or deserialized object.
-	 * @param obj
-	 * @param key
+	 * Resolves the ID of `obj`. Can take strings, references, and deserialized
+	 * objects too.
+	 *
+	 * @param obj The object to resolve.
+	 * @returns {Promise<string>} The resolved ID.
+	 * @throws {TypeError} If the object does not exist in the database.
+	 */
+	protected static async resolveId ( obj : any ) : Promise<string> {
+		if ( typeof obj === 'string' ) {
+			return obj
+		} else if ( !obj._id ) {
+			if ( obj.hasOwnProperty ( 'type' ) && obj.type === 'reference' && obj.hasOwnProperty ( 'data' ) ) {
+				return obj.data
+			} else {
+				throw new TypeError ( 'object does not exist in database' )
+			}
+		}
+
+		return obj._id
+	}
+
+	/**
+	 * Gets the key `key` of object `obj` and returns it.
+	 *
+	 * @param obj The object or ID to target.
+	 * @param {string | number} key
 	 * @returns {Promise<void>}
 	 */
 	async getKey (
 		obj : any,
 		key : string | number
 	) {
-		if ( typeof obj === 'string' ) {
-			obj = { _id : obj }
-		} else if ( !obj._id ) {
-			if ( obj.hasOwnProperty ( 'type' ) && obj.type === 'reference' && obj.hasOwnProperty ( 'data' ) ) {
-				obj = { _id : obj.data }
-			} else {
-				throw new TypeError ( 'object does not exist in database' )
-			}
-		}
-
 		return await await this.store.getKey (
-			obj._id,
+			await Carbyne.resolveId ( obj ),
 			key
 		)
 	}
 
 	/**
-	 * Pushes an element to an array. `obj` can be an ID, reference, or deserialized object.
-	 * @param obj
-	 * @param value
+	 * Pushes `value` to array `obj`. Works with objects too, I guess. It
+	 * honestly doesn't care.
+	 *
+	 * @param obj The object to target.
+	 * @param {string | number} value The value to push to `obj`.
 	 * @returns {Promise<void>}
 	 */
 	async push (
 		obj : any,
 		value : string | number
 	) {
-		if ( typeof obj === 'string' ) {
-			obj = { _id : obj }
-		} else if ( !obj._id ) {
-			if ( obj.hasOwnProperty ( 'type' ) && obj.type === 'reference' && obj.hasOwnProperty ( 'data' ) ) {
-				obj = { _id : obj.data }
-			} else {
-				throw new TypeError ( 'object does not exist in database' )
-			}
-		}
+		const id = await Carbyne.resolveId ( obj )
 
 		const serialized = await this.serialize (
 			value,
@@ -467,68 +542,56 @@ export class Carbyne {
 		)
 
 		await this.store.push (
-			obj._id,
+			id,
 			serialized
 		)
 
-		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( obj._id ) ) {
-			( <Array<any>> this.deserializeCache[ obj._id ] ).push ( await this.deserialize ( serialized ) )
+		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( id ) ) {
+			( <TCarbyneDesArray> this.deserializeCache[ id ] ).push ( await this.deserialize ( serialized ) )
 		}
 	}
 
 	/**
-	 * Sets the data of `obj` to `data`. Only use on custom objects. `obj` can be an ID, reference, or deserialized object.
-	 * @param obj
-	 * @param data
+	 * Sets the data of `obj` to `data`. Only use on custom objects. `obj` can
+	 * be an ID, reference, or deserialized object.
+	 *
+	 * @param obj The ID or object to target.
+	 * @param data The data to set the object to.
 	 * @returns {Promise<void>}
 	 */
 	async setData (
 		obj : any,
 		data : any
 	) {
-		if ( typeof obj === 'string' ) {
-			obj = { _id : obj }
-		} else if ( !obj._id ) {
-			if ( obj.hasOwnProperty ( 'type' ) && obj.type === 'reference' && obj.hasOwnProperty ( 'data' ) ) {
-				obj = { _id : obj.data }
-			} else {
-				throw new TypeError ( 'object does not exist in database' )
-			}
-		}
+		const id = await Carbyne.resolveId ( obj )
 
 		await this.store.setData (
-			obj._id,
+			id,
 			data
 		)
 
-		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( obj._id ) ) {
-			( <any> this.deserializeCache[ obj._id ] ).data = data
+		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( id ) ) {
+			( <TCarbyneDesObject> this.deserializeCache[ id ] ).data = data
 		}
 	}
 
 	/**
-	 * Gets the data of `obj`. `obj` can be an ID, reference, or deserialized object.
-	 * @param obj
-	 * @returns {Promise<any>}
+	 * Gets the data of `obj`. `obj` can be an ID, reference, or deserialized
+	 * object.
+	 *
+	 * @param obj The object to target.
+	 * @returns {Promise<any>} The data of `obj`.
 	 */
 	async getData ( obj : any ) {
-		if ( typeof obj === 'string' ) {
-			obj = { _id : obj }
-		} else if ( !obj._id ) {
-			if ( obj.hasOwnProperty ( 'type' ) && obj.type === 'reference' && obj.hasOwnProperty ( 'data' ) ) {
-				obj = { _id : obj.data }
-			} else {
-				throw new TypeError ( 'object does not exist in database' )
-			}
-		}
-
-		return await this.store.getData ( obj._id )
+		return await this.store.getData ( await Carbyne.resolveId ( obj ) )
 	}
 
 	/**
-	 * Registers a new object. `name` is the `type`, and `cls` is the class (not an instance of it!)
-	 * @param {string} name
-	 * @param {ICarbyneCustomObjectConstructor} cls
+	 * Registers a new custom object. `name` is the `type`, and `cls` is the
+	 * class (not an instance of it).
+	 *
+	 * @param {string} name The name (type) of the new object.
+	 * @param {ICarbyneCustomObjectConstructor} cls The class to use.
 	 * @returns {Promise<void>}
 	 */
 	async registerCustomObject (
