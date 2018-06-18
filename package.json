@@ -28,5 +28,18 @@
     "ts-mocha": "^1.2.0",
     "typedoc": "^0.11.1",
     "typedoc-plugin-markdown": "^1.1.13"
-  }
+  },
+  "directories": {
+    "doc": "doc",
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allotropelabs/carbyne.git"
+  },
+  "bugs": {
+    "url": "https://github.com/allotropelabs/carbyne/issues"
+  },
+  "homepage": "https://github.com/allotropelabs/carbyne#readme"
 }
