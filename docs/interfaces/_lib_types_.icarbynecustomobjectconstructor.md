@@ -22,7 +22,7 @@
 
 ⊕ **new ICarbyneCustomObjectConstructor**(data: *`any`*, _id?: * `undefined` &#124; `string`*): [ICarbyneCustomObject](_lib_types_.icarbynecustomobject.md)
 
-*Defined in [lib/types.ts:187](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L187)*
+*Defined in [lib/types.ts:187](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L187)*
 
 Create a custom object from the object `data`.
 

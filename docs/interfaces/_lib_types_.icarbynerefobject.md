@@ -23,7 +23,7 @@
 
 **● id**: *`string`*
 
-*Defined in [lib/types.ts:36](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L36)*
+*Defined in [lib/types.ts:36](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L36)*
 
 ___
 <a id="type"></a>
@@ -32,7 +32,7 @@ ___
 
 **● type**: *"object"*
 
-*Defined in [lib/types.ts:32](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L32)*
+*Defined in [lib/types.ts:32](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L32)*
 
 ___
 

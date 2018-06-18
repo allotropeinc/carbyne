@@ -23,7 +23,7 @@
 
 **generalTypes**: *`object`*
 
-*Defined in [lib/carbyne.ts:18](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L18)*
+*Defined in [lib/carbyne.ts:18](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L18)*
 
 <a id="generaltypes.bool"></a>
 
@@ -31,7 +31,7 @@
 
 **● bool**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:19](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L19)*
+*Defined in [lib/carbyne.ts:19](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L19)*
 
 ___
 <a id="generaltypes.number"></a>
@@ -40,7 +40,7 @@ ___
 
 **● number**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:20](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L20)*
+*Defined in [lib/carbyne.ts:20](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L20)*
 
 ___
 <a id="generaltypes.reference"></a>
@@ -49,7 +49,7 @@ ___
 
 **● reference**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:22](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L22)*
+*Defined in [lib/carbyne.ts:22](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L22)*
 
 ___
 <a id="generaltypes.string"></a>
@@ -58,7 +58,7 @@ ___
 
 **● string**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:21](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L21)*
+*Defined in [lib/carbyne.ts:21](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L21)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 **objTypes**: *`object`*
 
-*Defined in [lib/carbyne.ts:25](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L25)*
+*Defined in [lib/carbyne.ts:25](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L25)*
 
 <a id="objtypes.array"></a>
 
@@ -77,7 +77,7 @@ ___
 
 **● array**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:27](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L27)*
+*Defined in [lib/carbyne.ts:27](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L27)*
 
 ___
 <a id="objtypes.object"></a>
@@ -86,7 +86,7 @@ ___
 
 **● object**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:26](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L26)*
+*Defined in [lib/carbyne.ts:26](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L26)*
 
 ___
 <a id="objtypes.symbol"></a>
@@ -95,7 +95,7 @@ ___
 
 **● symbol**: *`boolean`* = true
 
-*Defined in [lib/carbyne.ts:28](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L28)*
+*Defined in [lib/carbyne.ts:28](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/carbyne.ts#L28)*
 
 ___
 

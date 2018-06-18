@@ -40,7 +40,7 @@
 **ΤTCarbyneCached**: * [TCarbyneCachedObject](_lib_types_.md#tcarbynecachedobject) &#124; [TCarbyneCachedArray](_lib_types_.md#tcarbynecachedarray) &#124; `Symbol` &#124; [ICarbyneCustomObject](../interfaces/_lib_types_.icarbynecustomobject.md)
 *
 
-*Defined in [lib/types.ts:67](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L67)*
+*Defined in [lib/types.ts:67](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L67)*
 
 ___
 <a id="tcarbynecachedarray"></a>
@@ -49,7 +49,7 @@ ___
 
 **ΤTCarbyneCachedArray**: *`Array`<[TCarbyneValue](_lib_types_.md#tcarbynevalue)>*
 
-*Defined in [lib/types.ts:65](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L65)*
+*Defined in [lib/types.ts:65](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L65)*
 
 ___
 <a id="tcarbynecachedobject"></a>
@@ -58,7 +58,7 @@ ___
 
 **ΤTCarbyneCachedObject**: *`object`*
 
-*Defined in [lib/types.ts:61](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L61)*
+*Defined in [lib/types.ts:61](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L61)*
 
 #### Type declaration
 
@@ -72,7 +72,7 @@ ___
 **ΤTCarbyneRef**: * [ICarbyneRefObject](../interfaces/_lib_types_.icarbynerefobject.md) &#124; [ICarbyneRefArray](../interfaces/_lib_types_.icarbynerefarray.md) &#124; [ICarbyneRefSymbol](../interfaces/_lib_types_.icarbynerefsymbol.md)
 *
 
-*Defined in [lib/types.ts:51](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L51)*
+*Defined in [lib/types.ts:51](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L51)*
 
 ___
 <a id="tcarbynerefinternal"></a>
@@ -82,7 +82,7 @@ ___
 **ΤTCarbyneRefInternal**: * `object` & [TCarbyneRef](_lib_types_.md#tcarbyneref)
 *
 
-*Defined in [lib/types.ts:53](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L53)*
+*Defined in [lib/types.ts:53](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L53)*
 
 ___
 <a id="tcarbynerefs"></a>
@@ -91,7 +91,7 @@ ___
 
 **ΤTCarbyneRefs**: *`object`*
 
-*Defined in [lib/types.ts:57](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L57)*
+*Defined in [lib/types.ts:57](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L57)*
 
 #### Type declaration
 
@@ -105,7 +105,7 @@ ___
 **ΤTCarbyneTypeExt**: * [TCarbyneTypeGeneral](_lib_types_.md#tcarbynetypegeneral) &#124; [TCarbyneTypeImplicit](_lib_types_.md#tcarbynetypeimplicit) &#124; [TCarbyneTypeObj](_lib_types_.md#tcarbynetypeobj)
 *
 
-*Defined in [lib/types.ts:19](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L19)*
+*Defined in [lib/types.ts:19](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L19)*
 
 ___
 <a id="tcarbynetypegeneral"></a>
@@ -115,7 +115,7 @@ ___
 **ΤTCarbyneTypeGeneral**: * "bool" &#124; "number" &#124; "string" &#124; "reference"
 *
 
-*Defined in [lib/types.ts:1](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L1)*
+*Defined in [lib/types.ts:1](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L1)*
 
 ___
 <a id="tcarbynetypeimplicit"></a>
@@ -125,7 +125,7 @@ ___
 **ΤTCarbyneTypeImplicit**: * "null" &#124; "undefined" &#124; "pinfinity" &#124; "ninfinity" &#124; "nan"
 *
 
-*Defined in [lib/types.ts:7](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L7)*
+*Defined in [lib/types.ts:7](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L7)*
 
 ___
 <a id="tcarbynetypeobj"></a>
@@ -135,7 +135,7 @@ ___
 **ΤTCarbyneTypeObj**: * "object" &#124; "array" &#124; "symbol"
 *
 
-*Defined in [lib/types.ts:14](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L14)*
+*Defined in [lib/types.ts:14](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L14)*
 
 ___
 <a id="tcarbynevalue"></a>
@@ -145,7 +145,7 @@ ___
 **ΤTCarbyneValue**: * `object` &#124; `object`
 *
 
-*Defined in [lib/types.ts:24](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L24)*
+*Defined in [lib/types.ts:24](https://github.com/allotropelabs/carbyne/blob/0bc7c32/lib/types.ts#L24)*
 
 ___
 
