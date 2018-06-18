@@ -37,7 +37,7 @@
 
 ▸ **clear**(newRoot?: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:107](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L107)*
+*Defined in [lib/types.ts:107](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L107)*
 
 Clears the database of any data, setting the root to `newRoot` or {} (empty object).
 
@@ -56,7 +56,7 @@ ___
 
 ▸ **genID**(): `Promise`<`string`>
 
-*Defined in [lib/types.ts:114](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L114)*
+*Defined in [lib/types.ts:114](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L114)*
 
 Gets a new ID to use for objects.
 
@@ -69,7 +69,7 @@ ___
 
 ▸ **getData**(id: *`string`*): `Promise`<`any`>
 
-*Defined in [lib/types.ts:195](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L195)*
+*Defined in [lib/types.ts:195](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L195)*
 
 Gets the data of a custom object.
 
@@ -88,7 +88,7 @@ ___
 
 ▸ **getKey**(id: *`string`*, key: * `number` &#124; `string`*): `Promise`<[TCarbyneValue](../#tcarbynevalue)>
 
-*Defined in [lib/types.ts:135](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L135)*
+*Defined in [lib/types.ts:135](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L135)*
 
 Gets the value of a key in an object.
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **getKeys**(id: *`string`*): `Promise`<`string`[]>
 
-*Defined in [lib/types.ts:176](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L176)*
+*Defined in [lib/types.ts:176](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L176)*
 
 Gets the keys of an object specified by ID.
 
@@ -127,7 +127,7 @@ ___
 
 ▸ **getLength**(id: *`string`*): `Promise`<`number`>
 
-*Defined in [lib/types.ts:168](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L168)*
+*Defined in [lib/types.ts:168](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L168)*
 
 Gets the length of an array specified by ID.
 
@@ -146,7 +146,7 @@ ___
 
 ▸ **getType**(id: *`string`*): `Promise`<[TCarbyneTypeObj](../#tcarbynetypeobj)>
 
-*Defined in [lib/types.ts:160](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L160)*
+*Defined in [lib/types.ts:160](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L160)*
 
 Gets the type of an object specified by ID.
 
@@ -165,7 +165,7 @@ ___
 
 ▸ **push**(id: *`string`*, value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:184](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L184)*
+*Defined in [lib/types.ts:184](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L184)*
 
 Pushes an object to an array.
 
@@ -185,7 +185,7 @@ ___
 
 ▸ **setData**(id: *`string`*, data: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:204](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L204)*
+*Defined in [lib/types.ts:204](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L204)*
 
 Sets the data of a custom object.
 
@@ -205,7 +205,7 @@ ___
 
 ▸ **setKey**(id: *`string`*, key: * `number` &#124; `string`*, value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:148](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L148)*
+*Defined in [lib/types.ts:148](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L148)*
 
 Sets the value of a key in an object.
 
@@ -226,7 +226,7 @@ ___
 
 ▸ **setRef**(id: *`string`*, obj: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:123](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L123)*
+*Defined in [lib/types.ts:123](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L123)*
 
 Sets a reference by ID.
 

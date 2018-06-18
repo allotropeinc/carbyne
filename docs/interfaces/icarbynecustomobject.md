@@ -31,7 +31,7 @@
 **● _id**: * `string` &#124; `undefined`
 *
 
-*Defined in [lib/types.ts:211](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L211)*
+*Defined in [lib/types.ts:211](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L211)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ▸ **serialize**(): `Promise`<`any`>
 
-*Defined in [lib/types.ts:217](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L217)*
+*Defined in [lib/types.ts:217](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L217)*
 
 Serialize this custom object, return an object that can be passed to MessagePack.
 

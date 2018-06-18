@@ -23,7 +23,7 @@
 
 **● id**: *`string`*
 
-*Defined in [lib/types.ts:52](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L52)*
+*Defined in [lib/types.ts:52](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L52)*
 
 ___
 <a id="type"></a>
@@ -32,7 +32,7 @@ ___
 
 **● type**: *"symbol"*
 
-*Defined in [lib/types.ts:50](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L50)*
+*Defined in [lib/types.ts:50](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L50)*
 
 ___
 

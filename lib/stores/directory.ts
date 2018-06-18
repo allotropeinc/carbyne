@@ -124,6 +124,8 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 						value
 					)
 				}
+
+				break
 			default:
 				await fs.writeFile (
 					path.join (

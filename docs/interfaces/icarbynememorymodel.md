@@ -23,7 +23,7 @@
 
 **● refs**: *[TCarbyneRefs](../#tcarbynerefs)*
 
-*Defined in [lib/types.ts:97](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L97)*
+*Defined in [lib/types.ts:97](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L97)*
 
 ___
 <a id="root"></a>
@@ -33,7 +33,7 @@ ___
 **● root**: * [TCarbyneRef](../#tcarbyneref) &#124; `null`
 *
 
-*Defined in [lib/types.ts:96](https://github.com/allotropelabs/carbyne/blob/70b4949/lib/types.ts#L96)*
+*Defined in [lib/types.ts:96](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L96)*
 
 ___
 

@@ -25,9 +25,21 @@ import {
  * @type {Object}
  */
 export const generalTypes = {
+	/**
+	 * Booleans.
+	 */
 	bool      : true,
+	/**
+	 * Numbers.
+	 */
 	number    : true,
+	/**
+	 * Strings.
+	 */
 	string    : true,
+	/**
+	 * References to other objects (custom or otherwise).
+	 */
 	reference : true
 }
 
@@ -37,10 +49,25 @@ export const generalTypes = {
  * @type {Object}
  */
 export const implicitTypes = {
+	/**
+	 * The literal `null`.
+	 */
 	null      : true,
+	/**
+	 * The literal `undefined`.
+	 */
 	undefined : true,
+	/**
+	 * The literal `Infinity`.
+	 */
 	pinfinity : true,
+	/**
+	 * The literal `-Infinity`.
+	 */
 	ninfinity : true,
+	/**
+	 * The literal `NaN`.
+	 */
 	nan       : true
 }
 
@@ -50,8 +77,17 @@ export const implicitTypes = {
  * @type {Object}
  */
 export const objTypes = {
+	/**
+	 * The object type has an `Object` as the `obj` property.
+	 */
 	object : true,
+	/**
+	 * The array type has an `Array` as the `obj` property.
+	 */
 	array  : true,
+	/**
+	 * The symbol type has no `obj` property. Symbols are immutable.
+	 */
 	symbol : true
 }
 
@@ -67,10 +103,31 @@ export const objTypes = {
  * ```
  */
 export class Carbyne {
+	/**
+	 * The cache of serialized items that are used to protect against infinite
+	 * recursion and copies.
+	 */
 	protected serializeCache : ICarbyneCache
+
+	/**
+	 * The cache of deserialized items that are used to protect against infinite
+	 * recursion and copies.
+	 */
 	protected deserializeCache : ICarbyneDesCache
+
+	/**
+	 * Used so we don't make unnecessary copies of symbols with the same ID.
+	 */
 	protected symbolIds : any
+
+	/**
+	 * The `ICarbyneStore` currently in use by the database.
+	 */
 	protected store : ICarbyneStore
+
+	/**
+	 * The registry of custom objects the database can use.
+	 */
 	protected customObjects : { [ name : string ] : ICarbyneCustomObjectConstructor }
 
 	/**
