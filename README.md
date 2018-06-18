@@ -3,30 +3,34 @@
 Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after searching for what seemed like days for an actual object database. JavaScript just didn't seem to have any real object databases that actually stored objects. Well, Carbyne's going to change that. Carbyne's a *real* object database that supports almost anything regular JS objects do.
 
 <details><summary>Types Carbyne supports</summary>
-- `boolean`s
-- `number`s
-- `string`s
-- `null`
-- `undefined`
-- `Infinity`
-- `-Infinity`
-- `NaN`
-- `object`s
-- `Array`s
-- `Symbol`s
+	<ul>
+		<li><code>boolean</code>s</li>
+		<li><code>number</code>s</li>
+		<li><code>string</code>s</li>
+		<li><code>null</code></li>
+		<li><code>undefined</code></li>
+		<li><code>Infinity</code></li>
+		<li><code>-Infinity</code></li>
+		<li><code>NaN</code></li>
+		<li><code>object</code>s</li>
+		<li><code>Array</code>s</li>
+		<li><code>Symbol</code>s</li>
+	</ul>
 </details>
 
 <details><summary>Extra features Carbyne supports</summary>
-- Circular references
-- Copies of objects (as well as arrays and Symbols)
-- `CarbyneBlob`s, basically `Buffer`s
-
-It's also very easy to add your own objects! Just call [`registerCustomObject`](#registerCustomObject)
+	<ul>
+		<li>Circular references</li>
+		<li>Copies of objects (as well as arrays and Symbols)</li>
+		<li><code>CarbyneBlob</code>s, basically <code>Buffer</code>s</li>
+	</ul>
+	<p>
+		It's also very easy to add your own objects! Just call [`registerCustomObject`](#registerCustomObject)
+	</p>
 </details>
 
 <details><summary>`npm test` output</summary>
-```
-  Carbyne
+<pre><code>  Carbyne
     DirectoryStore
       ✓ should support fromObject
       ✓ should store booleans
@@ -73,8 +77,7 @@ It's also very easy to add your own objects! Just call [`registerCustomObject`](
       ✓ should support copying a blob
 
 
-  42 passing (79ms)
-```
+  42 passing (79ms)</code></pre>
 </details>
 
 You can use the TypeScript typings provided, or [read the docs provided in the repo](docs/README.md).
