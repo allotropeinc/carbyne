@@ -24,7 +24,7 @@ The constructor for a [ICarbyneCustomObject](icarbynecustomobject.md).
 
 ⊕ **new ICarbyneCustomObjectConstructor**(data: *`any`*, _id?: * `undefined` &#124; `string`*): [ICarbyneCustomObject](icarbynecustomobject.md)
 
-*Defined in lib/types.ts:319*
+*Defined in [lib/types.ts:319](https://github.com/allotropelabs/carbyne/blob/c2e180b/lib/types.ts#L319)*
 
 Create a custom object from the object `data`.
 

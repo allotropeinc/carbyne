@@ -25,7 +25,7 @@ Model used by [CarbyneMemoryStore](../classes/carbynememorystore.md).
 
 **● refs**: *[TCarbyneRefs](../#tcarbynerefs)*
 
-*Defined in lib/types.ts:186*
+*Defined in [lib/types.ts:186](https://github.com/allotropelabs/carbyne/blob/c2e180b/lib/types.ts#L186)*
 
 ___
 <a id="root"></a>
@@ -35,7 +35,7 @@ ___
 **● root**: * [TCarbyneRef](../#tcarbyneref) &#124; `null`
 *
 
-*Defined in lib/types.ts:185*
+*Defined in [lib/types.ts:185](https://github.com/allotropelabs/carbyne/blob/c2e180b/lib/types.ts#L185)*
 
 ___
 
