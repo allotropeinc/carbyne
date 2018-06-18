@@ -367,8 +367,13 @@ export class Carbyne {
 	 * Clears the database, immediately and irreversibly dropping all data.
 	 * @returns {Promise<void>}
 	 */
-	async clear () {
-		await this.store.clear ()
+	async clear ( newObj? : any ) {
+		await this.store.clear (
+			newObj ? await this.serialize (
+				newObj,
+				'root'
+			) : undefined
+		)
 	}
 
 	/**
