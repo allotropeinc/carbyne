@@ -2,6 +2,8 @@
 
 # Interface: ICarbyneMemoryModel
 
+Model used by [CarbyneMemoryStore](../classes/carbynememorystore.md).
+
 ## Hierarchy
 
 **ICarbyneMemoryModel**
@@ -23,7 +25,7 @@
 
 **● refs**: *[TCarbyneRefs](../#tcarbynerefs)*
 
-*Defined in [lib/types.ts:97](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L97)*
+*Defined in [lib/types.ts:155](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L155)*
 
 ___
 <a id="root"></a>
@@ -33,7 +35,7 @@ ___
 **● root**: * [TCarbyneRef](../#tcarbyneref) &#124; `null`
 *
 
-*Defined in [lib/types.ts:96](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L96)*
+*Defined in [lib/types.ts:154](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L154)*
 
 ___
 

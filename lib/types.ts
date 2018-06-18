@@ -1,9 +1,15 @@
+/**
+ * General types that have [[TCarbyneValueGeneral.data]].
+ */
 export type TCarbyneTypeGeneral =
 	'bool' |
 	'number' |
 	'string' |
 	'reference'
 
+/**
+ * Implicit types that have no `data` property.
+ */
 export type TCarbyneTypeImplicit =
 	'null' |
 	'undefined' |
@@ -11,92 +17,148 @@ export type TCarbyneTypeImplicit =
 	'ninfinity' |
 	'nan'
 
+/**
+ * Object types that have [[TCarbyneRefInternal.obj]].
+ */
 export type TCarbyneTypeObj =
 	'object' |
 	'array' |
 	'symbol'
 
+/**
+ * All types.
+ */
 export type TCarbyneTypeExt =
 	TCarbyneTypeGeneral |
 	TCarbyneTypeImplicit |
 	TCarbyneTypeObj
 
+/**
+ * General values where additional info is required other than the
+ * [[TCarbyneTypeGeneral]].
+ */
 export type TCarbyneValueGeneral = {
 	type : TCarbyneTypeGeneral,
 	data : any
 }
 
+/**
+ * Implicit values where [[TCarbyneTypeImplicit]] describes the value.
+ */
 export type TCarbyneValueImplicit = {
 	type : TCarbyneTypeImplicit
 }
 
+/**
+ * All values.
+ */
 export type TCarbyneValue = TCarbyneValueGeneral | TCarbyneValueImplicit
 
+/**
+ * See [[TCarbyneRef]]
+ */
 export interface ICarbyneRefObject {
 	type : 'object'
-	/* obj : {
-		[ key : string ] : TCarbyneValue
-	} */
 	id : string
 }
 
+/**
+ * See [[TCarbyneRef]]
+ */
 export interface ICarbyneRefArray {
 	type : 'array'
-	// obj : Array<TCarbyneValue>
 	id : string
 }
 
+/**
+ * See [[TCarbyneRef]]
+ */
 export interface ICarbyneRefSymbol {
 	type : 'symbol'
-	// obj : Symbol
 	id : string
 }
 
+/**
+ * A ref value, stored in [[TCarbyneRefs]].
+ */
 export type TCarbyneRef = ICarbyneRefObject | ICarbyneRefArray | ICarbyneRefSymbol
 
-export type TCarbyneRefInternal = {
-	obj : any
-} & TCarbyneRef
+/**
+ * See [[TCarbyneRefInternal]]
+ */
+export type TCarbyneRefInternalObject = {
+	obj : {
+		[ key : string ] : TCarbyneValue
+	}
+} & ICarbyneRefObject
 
+/**
+ * See [[TCarbyneRefInternal]]
+ */
+export type TCarbyneRefInternalArray = {
+	obj : Array<TCarbyneValue>
+} & ICarbyneRefArray
+
+/**
+ * See [[TCarbyneRefInternal]]
+ */
+export type TCarbyneRefInternalSymbol = {
+	obj : Symbol
+} & ICarbyneRefSymbol
+
+/**
+ * Internal refs used by [[ICarbyneStore]] methods.
+ */
+export type TCarbyneRefInternal = TCarbyneRefInternalObject | TCarbyneRefInternalArray | TCarbyneRefInternalSymbol
+
+/**
+ * Internal ref store used by [[ICarbyneStore]] methods.
+ */
 export type TCarbyneRefs = {
 	[ id : string ] : TCarbyneRefInternal
 }
 
-/*export type TCarbyneCachedObject = {
-	[ key : string ] : TCarbyneValue
-}
-
-export type TCarbyneCachedArray = Array<TCarbyneValue>
-
-export type TCarbyneCachedCustomObject = {
-	data : any
-}
-
-export type TCarbyneCached = TCarbyneCachedObject | TCarbyneCachedArray | Symbol | TCarbyneCachedCustomObject
-
-export interface ICarbyneCache {
-	[ id : string ] : TCarbyneCached
-}*/
-
+/**
+ * Cache used by [[Carbyne.serialize]].
+ */
 export interface ICarbyneCache {
 	[ id : string ] : TCarbyneValue
 }
 
+/**
+ * [[ICarbyneDesCache]]
+ */
 export type TCarbyneDesObject = { [ key : string ] : any }
 
+/**
+ * [[ICarbyneDesCache]]
+ */
 export type TCarbyneDesArray = Array<any>
 
+/**
+ * [[ICarbyneDesCache]]
+ */
 export type TCarbyneDesCached = TCarbyneDesObject | TCarbyneDesArray | Symbol | ICarbyneCustomObject
 
+/**
+ * Cache used by [[Carbyne.deserialize]].
+ */
 export interface ICarbyneDesCache {
 	[ id : string ] : TCarbyneDesCached
 }
 
+/**
+ * Model used by [[CarbyneMemoryStore]].
+ */
 export interface ICarbyneMemoryModel {
 	root : TCarbyneRef | null
 	refs : TCarbyneRefs
 }
 
+/**
+ * The interface you need to implement in a class passed to
+ * [[Carbyne.constructor]].
+ */
 export interface ICarbyneStore {
 	/**
 	 * Clears the database of any data, setting the root to `newRoot` or {} (empty object).
@@ -207,6 +269,9 @@ export interface ICarbyneStore {
 	) : Promise<void>
 }
 
+/**
+ * A custom object. See [[Carbyne.registerCustomObject]].
+ */
 export interface ICarbyneCustomObject {
 	_id : string | undefined
 
@@ -217,9 +282,13 @@ export interface ICarbyneCustomObject {
 	serialize () : Promise<any>
 }
 
+/**
+ * The constructor for a [[ICarbyneCustomObject]].
+ */
 export interface ICarbyneCustomObjectConstructor {
 	/**
 	 * Create a custom object from the object `data`.
+	 *
 	 * @param data
 	 * @param {string} _id
 	 * @returns {ICarbyneCustomObject}

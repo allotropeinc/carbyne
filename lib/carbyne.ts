@@ -9,6 +9,8 @@ import {
 	TCarbyneDesArray,
 	TCarbyneDesObject,
 	TCarbyneRefInternal,
+	TCarbyneRefInternalArray,
+	TCarbyneRefInternalObject,
 	TCarbyneTypeExt,
 	TCarbyneTypeObj,
 	TCarbyneValue,
@@ -21,8 +23,6 @@ import {
 
 /**
  * The general types, that have a `data` property.
- *
- * @type {Object}
  */
 export const generalTypes = {
 	/**
@@ -45,8 +45,6 @@ export const generalTypes = {
 
 /**
  * The implicit types, do not have a `data` property.
- *
- * @type {Object}
  */
 export const implicitTypes = {
 	/**
@@ -73,8 +71,6 @@ export const implicitTypes = {
 
 /**
  * The object types, have a `obj` attribute with an object inside.
- *
- * @type {Object}
  */
 export const objTypes = {
 	/**
@@ -260,7 +256,7 @@ export class Carbyne {
 					key : string | number,
 					value : any
 				) => {
-					newObj.obj[ key ] = await this.serialize (
+					( <any> ( <TCarbyneRefInternalObject | TCarbyneRefInternalArray> newObj ).obj )[ key ] = await this.serialize (
 						value,
 						await this.store.genID ()
 					)

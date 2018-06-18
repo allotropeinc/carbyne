@@ -2,6 +2,8 @@
 
 # Interface: ICarbyneRefSymbol
 
+See [TCarbyneRef](../#tcarbyneref)
+
 ## Hierarchy
 
 **ICarbyneRefSymbol**
@@ -23,7 +25,7 @@
 
 **● id**: *`string`*
 
-*Defined in [lib/types.ts:52](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L52)*
+*Defined in [lib/types.ts:78](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L78)*
 
 ___
 <a id="type"></a>
@@ -32,7 +34,7 @@ ___
 
 **● type**: *"symbol"*
 
-*Defined in [lib/types.ts:50](https://github.com/allotropelabs/carbyne/blob/dcbec49/lib/types.ts#L50)*
+*Defined in [lib/types.ts:77](https://github.com/allotropelabs/carbyne/blob/22aec63/lib/types.ts#L77)*
 
 ___
 
