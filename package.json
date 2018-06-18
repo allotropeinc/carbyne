@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "ts-mocha test.ts -r chai/register-expect",
+    "test": "ts-mocha test/test.ts -r chai/register-expect",
     "build": "sh build.sh"
   },
   "author": "LoganDark",

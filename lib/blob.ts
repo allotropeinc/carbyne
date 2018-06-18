@@ -1,4 +1,4 @@
-import { ICarbyneCustomObject } from './types'
+import { ICarbyneCustomObject } from './index'
 
 export class CarbyneBlob implements ICarbyneCustomObject {
 	public _id : any

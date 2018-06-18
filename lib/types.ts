@@ -77,10 +77,11 @@ export interface ICarbyneMemoryModel {
 
 export interface ICarbyneStore {
 	/**
-	 * Clears the database.
+	 * Clears the database of any data, setting the root to `newRoot` or {} (empty object).
+	 * @param {any} newRoot
 	 * @returns {Promise<void>}
 	 */
-	clear () : Promise<void>
+	clear ( newRoot? : any ) : Promise<void>
 
 	/**
 	 * Gets a new ID to use for objects.

@@ -1,4 +1,4 @@
-[carbyne](../README.md) > ["lib/blob"](../modules/_lib_blob_.md)
+[carbyne-db](../README.md) > ["lib/blob"](../modules/_lib_blob_.md)
 
 # External module: "lib/blob"
 

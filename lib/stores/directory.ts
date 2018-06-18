@@ -2,7 +2,7 @@ import * as fs                                           from 'fs-extra'
 import * as msgpack                                      from 'msgpack-lite'
 import * as path                                         from 'path'
 import * as uuid                                         from 'uuid'
-import { ICarbyneStore, TCarbyneTypeObj, TCarbyneValue } from '../types'
+import { ICarbyneStore, TCarbyneTypeObj, TCarbyneValue } from '../index'
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -55,8 +55,9 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		)
 	}
 
-	async clear () {
+	async clear ( newRoot? : any ) {
 		await fs.emptyDir ( this.dirName )
+		await this.setRef ( 'root', newRoot || {} )
 	}
 
 	async genID () {
@@ -154,10 +155,16 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		key : number | string,
 		value : TCarbyneValue
 	) {
+		const keysDir = path.join (
+			await this.getObjectDir ( id ),
+			'keys'
+		)
+
+		await fs.mkdirp ( keysDir )
+
 		await fs.writeFile (
 			path.join (
-				await this.getObjectDir ( id ),
-				'keys',
+				keysDir,
 				key.toString ()
 			),
 			await CarbyneDirectoryStore.pack ( value )

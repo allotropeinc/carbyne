@@ -1,5 +1,5 @@
 import * as uuid                                                                           from 'uuid'
-import { ICarbyneMemoryModel, ICarbyneStore, TCarbyneRef, TCarbyneTypeObj, TCarbyneValue } from '../types'
+import { ICarbyneMemoryModel, ICarbyneStore, TCarbyneRef, TCarbyneTypeObj, TCarbyneValue } from '../index'
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,9 +30,9 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		return toReturn
 	}
 
-	async clear () {
+	async clear ( newRoot? : any ) {
 		this.model = <ICarbyneMemoryModel> {
-			root : null,
+			root : newRoot || {},
 			refs : {}
 		}
 	}

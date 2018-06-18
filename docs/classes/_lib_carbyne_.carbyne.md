@@ -1,4 +1,4 @@
-[carbyne](../README.md) > ["lib/index"](../modules/_lib_index_.md) > [Carbyne](../classes/_lib_index_.carbyne.md)
+[carbyne-db](../README.md) > ["lib/carbyne"](../modules/_lib_carbyne_.md) > [Carbyne](../classes/_lib_carbyne_.carbyne.md)
 
 # Class: Carbyne
 
@@ -10,31 +10,31 @@
 
 ### Constructors
 
-* [constructor](_lib_index_.carbyne.md#constructor)
+* [constructor](_lib_carbyne_.carbyne.md#constructor)
 
 ### Properties
 
-* [customObjects](_lib_index_.carbyne.md#customobjects)
-* [deserializeCache](_lib_index_.carbyne.md#deserializecache)
-* [serializeCache](_lib_index_.carbyne.md#serializecache)
-* [store](_lib_index_.carbyne.md#store)
-* [symbolIds](_lib_index_.carbyne.md#symbolids)
+* [customObjects](_lib_carbyne_.carbyne.md#customobjects)
+* [deserializeCache](_lib_carbyne_.carbyne.md#deserializecache)
+* [serializeCache](_lib_carbyne_.carbyne.md#serializecache)
+* [store](_lib_carbyne_.carbyne.md#store)
+* [symbolIds](_lib_carbyne_.carbyne.md#symbolids)
 
 ### Methods
 
-* [clear](_lib_index_.carbyne.md#clear)
-* [deserialize](_lib_index_.carbyne.md#deserialize)
-* [getData](_lib_index_.carbyne.md#getdata)
-* [getKey](_lib_index_.carbyne.md#getkey)
-* [getType](_lib_index_.carbyne.md#gettype)
-* [push](_lib_index_.carbyne.md#push)
-* [registerCustomObject](_lib_index_.carbyne.md#registercustomobject)
-* [serialize](_lib_index_.carbyne.md#serialize)
-* [setData](_lib_index_.carbyne.md#setdata)
-* [setKey](_lib_index_.carbyne.md#setkey)
-* [toObject](_lib_index_.carbyne.md#toobject)
-* [fromObject](_lib_index_.carbyne.md#fromobject)
-* [getValue](_lib_index_.carbyne.md#getvalue)
+* [clear](_lib_carbyne_.carbyne.md#clear)
+* [deserialize](_lib_carbyne_.carbyne.md#deserialize)
+* [getData](_lib_carbyne_.carbyne.md#getdata)
+* [getKey](_lib_carbyne_.carbyne.md#getkey)
+* [getType](_lib_carbyne_.carbyne.md#gettype)
+* [push](_lib_carbyne_.carbyne.md#push)
+* [registerCustomObject](_lib_carbyne_.carbyne.md#registercustomobject)
+* [serialize](_lib_carbyne_.carbyne.md#serialize)
+* [setData](_lib_carbyne_.carbyne.md#setdata)
+* [setKey](_lib_carbyne_.carbyne.md#setkey)
+* [toObject](_lib_carbyne_.carbyne.md#toobject)
+* [fromObject](_lib_carbyne_.carbyne.md#fromobject)
+* [getValue](_lib_carbyne_.carbyne.md#getvalue)
 
 ---
 
@@ -44,9 +44,9 @@
 
 ###  constructor
 
-⊕ **new Carbyne**(store?: *[ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md)*): [Carbyne](_lib_index_.carbyne.md)
+⊕ **new Carbyne**(store?: *[ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md)*): [Carbyne](_lib_carbyne_.carbyne.md)
 
-*Defined in lib/index.ts:36*
+*Defined in [lib/carbyne.ts:36](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L36)*
 
 A model for a Carbyne database.
 
@@ -56,7 +56,7 @@ A model for a Carbyne database.
 | ------ | ------ | ------ |
 | `Optional` store | [ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md) |   |
 
-**Returns:** [Carbyne](_lib_index_.carbyne.md)
+**Returns:** [Carbyne](_lib_carbyne_.carbyne.md)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 **● customObjects**: *`object`*
 
-*Defined in lib/index.ts:36*
+*Defined in [lib/carbyne.ts:36](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L36)*
 
 #### Type declaration
 
@@ -81,7 +81,7 @@ ___
 
 **● deserializeCache**: *[ICarbyneCache](../interfaces/_lib_types_.icarbynecache.md)*
 
-*Defined in lib/index.ts:33*
+*Defined in [lib/carbyne.ts:33](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L33)*
 
 ___
 <a id="serializecache"></a>
@@ -90,7 +90,7 @@ ___
 
 **● serializeCache**: *`any`*
 
-*Defined in lib/index.ts:32*
+*Defined in [lib/carbyne.ts:32](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L32)*
 
 ___
 <a id="store"></a>
@@ -99,7 +99,7 @@ ___
 
 **● store**: *[ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md)*
 
-*Defined in lib/index.ts:35*
+*Defined in [lib/carbyne.ts:35](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L35)*
 
 ___
 <a id="symbolids"></a>
@@ -108,7 +108,7 @@ ___
 
 **● symbolIds**: *`any`*
 
-*Defined in lib/index.ts:34*
+*Defined in [lib/carbyne.ts:34](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L34)*
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 ▸ **clear**(): `Promise`<`void`>
 
-*Defined in lib/index.ts:370*
+*Defined in [lib/carbyne.ts:370](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L370)*
 
 Clears the database, immediately and irreversibly dropping all data.
 
@@ -133,7 +133,7 @@ ___
 
 ▸ **deserialize**(obj: * `string` &#124; [TCarbyneValue](../modules/_lib_types_.md#tcarbynevalue)*): `Promise`<`any`>
 
-*Defined in lib/index.ts:259*
+*Defined in [lib/carbyne.ts:259](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L259)*
 
 Converts a Carbyne object into a regular object.
 
@@ -152,7 +152,7 @@ ___
 
 ▸ **getData**(obj: *`any`*): `Promise`<`any`>
 
-*Defined in lib/index.ts:509*
+*Defined in [lib/carbyne.ts:509](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L509)*
 
 Gets the data of `obj`. `obj` can be an ID, reference, or deserialized object.
 
@@ -171,7 +171,7 @@ ___
 
 ▸ **getKey**(obj: *`any`*, key: * `string` &#124; `number`*): `Promise`< `object` &#124; `object`>
 
-*Defined in lib/index.ts:419*
+*Defined in [lib/carbyne.ts:419](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L419)*
 
 Gets `key` of `obj`. `obj` can be an ID, reference, or deserialized object.
 
@@ -191,7 +191,7 @@ ___
 
 ▸ **getType**(obj: *`any`*): `Promise`< [TCarbyneTypeExt](../modules/_lib_types_.md#tcarbynetypeext) &#124; `string`>
 
-*Defined in lib/index.ts:63*
+*Defined in [lib/carbyne.ts:63](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L63)*
 
 Gets the type of an object.
 
@@ -210,7 +210,7 @@ ___
 
 ▸ **push**(obj: *`any`*, value: * `string` &#124; `number`*): `Promise`<`void`>
 
-*Defined in lib/index.ts:445*
+*Defined in [lib/carbyne.ts:445](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L445)*
 
 Pushes an element to an array. `obj` can be an ID, reference, or deserialized object.
 
@@ -230,7 +230,7 @@ ___
 
 ▸ **registerCustomObject**(name: *`string`*, cls: *[ICarbyneCustomObjectConstructor](../interfaces/_lib_types_.icarbynecustomobjectconstructor.md)*): `Promise`<`void`>
 
-*Defined in lib/index.ts:529*
+*Defined in [lib/carbyne.ts:529](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L529)*
 
 Registers a new object. `name` is the `type`, and `cls` is the class (not an instance of it!)
 
@@ -250,7 +250,7 @@ ___
 
 ▸ **serialize**(obj: *`any`*, id: *`string`*): `Promise`<[TCarbyneValue](../modules/_lib_types_.md#tcarbynevalue)>
 
-*Defined in lib/index.ts:105*
+*Defined in [lib/carbyne.ts:105](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L105)*
 
 Serializes an object into storage.
 
@@ -270,7 +270,7 @@ ___
 
 ▸ **setData**(obj: *`any`*, data: *`any`*): `Promise`<`void`>
 
-*Defined in lib/index.ts:480*
+*Defined in [lib/carbyne.ts:480](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L480)*
 
 Sets the data of `obj` to `data`. Only use on custom objects. `obj` can be an ID, reference, or deserialized object.
 
@@ -290,7 +290,7 @@ ___
 
 ▸ **setKey**(obj: *`any`*, key: * `string` &#124; `number`*, value: *`any`*): `Promise`<`void`>
 
-*Defined in lib/index.ts:382*
+*Defined in [lib/carbyne.ts:382](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L382)*
 
 **Parameters:**
 
@@ -309,7 +309,7 @@ ___
 
 ▸ **toObject**(obj?: *`any`*): `Promise`<`any`>
 
-*Defined in lib/index.ts:378*
+*Defined in [lib/carbyne.ts:378](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L378)*
 
 Converts this Carbyne model into an object and returns it.
 
@@ -326,9 +326,9 @@ ___
 
 ### `<Static>` fromObject
 
-▸ **fromObject**(obj: *`any`*, store?: *[ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md)*): `Promise`<[Carbyne](_lib_index_.carbyne.md)>
+▸ **fromObject**(obj: *`any`*, store?: *[ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md)*): `Promise`<[Carbyne](_lib_carbyne_.carbyne.md)>
 
-*Defined in lib/index.ts:351*
+*Defined in [lib/carbyne.ts:351](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L351)*
 
 Creates a Carbyne model from a regular object.
 
@@ -339,7 +339,7 @@ Creates a Carbyne model from a regular object.
 | obj | `any` |  - |
 | `Optional` store | [ICarbyneStore](../interfaces/_lib_types_.icarbynestore.md) |  - |
 
-**Returns:** `Promise`<[Carbyne](_lib_index_.carbyne.md)>
+**Returns:** `Promise`<[Carbyne](_lib_carbyne_.carbyne.md)>
 
 ___
 <a id="getvalue"></a>
@@ -348,7 +348,7 @@ ___
 
 ▸ **getValue**(value: *[TCarbyneValue](../modules/_lib_types_.md#tcarbynevalue)*): `Promise`<`any`>
 
-*Defined in lib/index.ts:227*
+*Defined in [lib/carbyne.ts:227](https://github.com/allotropelabs/carbyne/blob/e902363/lib/carbyne.ts#L227)*
 
 Gets a regular value from a Carbyne value.
 

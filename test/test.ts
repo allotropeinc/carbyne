@@ -1,10 +1,6 @@
-import { expect }                              from 'chai'
-import { describe, it }                        from 'mocha'
-import { CarbyneBlob }                         from '../lib/blob'
-import { Carbyne }                             from '../lib/index'
-import { CarbyneDirectoryStore }               from '../lib/stores/directory'
-import { CarbyneMemoryStore }                  from '../lib/stores/memory'
-import { ICarbyneCustomObject, ICarbyneStore } from '../lib/types'
+import { expect }                                                                                               from 'chai'
+import { describe, it }                                                                                         from 'mocha'
+import { Carbyne, CarbyneBlob, CarbyneDirectoryStore, CarbyneMemoryStore, ICarbyneCustomObject, ICarbyneStore } from '../lib/index'
 
 describe (
 	'Carbyne',

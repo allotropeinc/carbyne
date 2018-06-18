@@ -1,4 +1,4 @@
-[carbyne](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneCustomObjectConstructor](../interfaces/_lib_types_.icarbynecustomobjectconstructor.md)
+[carbyne-db](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneCustomObjectConstructor](../interfaces/_lib_types_.icarbynecustomobjectconstructor.md)
 
 # Interface: ICarbyneCustomObjectConstructor
 
@@ -22,7 +22,7 @@
 
 ⊕ **new ICarbyneCustomObjectConstructor**(data: *`any`*, _id?: * `undefined` &#124; `string`*): [ICarbyneCustomObject](_lib_types_.icarbynecustomobject.md)
 
-*Defined in lib/types.ts:186*
+*Defined in [lib/types.ts:187](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L187)*
 
 Create a custom object from the object `data`.
 

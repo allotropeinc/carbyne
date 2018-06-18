@@ -1,4 +1,4 @@
-[carbyne](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneCustomObject](../interfaces/_lib_types_.icarbynecustomobject.md)
+[carbyne-db](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneCustomObject](../interfaces/_lib_types_.icarbynecustomobject.md)
 
 # Interface: ICarbyneCustomObject
 
@@ -31,7 +31,7 @@
 **● _id**: * `string` &#124; `undefined`
 *
 
-*Defined in lib/types.ts:177*
+*Defined in [lib/types.ts:178](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L178)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ▸ **serialize**(): `Promise`<`any`>
 
-*Defined in lib/types.ts:183*
+*Defined in [lib/types.ts:184](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L184)*
 
 Serialize this custom object, return an object that can be passed to MessagePack.
 

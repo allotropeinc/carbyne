@@ -1,4 +1,4 @@
-[carbyne](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneCache](../interfaces/_lib_types_.icarbynecache.md)
+[carbyne-db](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneCache](../interfaces/_lib_types_.icarbynecache.md)
 
 # Interface: ICarbyneCache
 

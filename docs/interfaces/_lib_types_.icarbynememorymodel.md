@@ -1,4 +1,4 @@
-[carbyne](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneMemoryModel](../interfaces/_lib_types_.icarbynememorymodel.md)
+[carbyne-db](../README.md) > ["lib/types"](../modules/_lib_types_.md) > [ICarbyneMemoryModel](../interfaces/_lib_types_.icarbynememorymodel.md)
 
 # Interface: ICarbyneMemoryModel
 
@@ -23,7 +23,7 @@
 
 **● refs**: *[TCarbyneRefs](../modules/_lib_types_.md#tcarbynerefs)*
 
-*Defined in lib/types.ts:75*
+*Defined in [lib/types.ts:75](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L75)*
 
 ___
 <a id="root"></a>
@@ -33,7 +33,7 @@ ___
 **● root**: * [TCarbyneRef](../modules/_lib_types_.md#tcarbyneref) &#124; `null`
 *
 
-*Defined in lib/types.ts:74*
+*Defined in [lib/types.ts:74](https://github.com/allotropelabs/carbyne/blob/e902363/lib/types.ts#L74)*
 
 ___
 
