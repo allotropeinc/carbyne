@@ -1,5 +1,6 @@
 import { expect }                                                                                               from 'chai'
 import { describe, it }                                                                                         from 'mocha'
+import * as path                                                                                                from 'path'
 import { Carbyne, CarbyneBlob, CarbyneDirectoryStore, CarbyneMemoryStore, ICarbyneCustomObject, ICarbyneStore } from '../lib/index'
 
 describe (
@@ -387,7 +388,12 @@ describe (
 
 		describeStore (
 			'DirectoryStore',
-			new CarbyneDirectoryStore ( './test-db' )
+			new CarbyneDirectoryStore (
+				path.join (
+					__dirname,
+					'test-db'
+				)
+			)
 		)
 
 		describeStore (
