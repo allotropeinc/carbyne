@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf dist doc
+rm -rf dist ./docs
 tsc
-typedoc --exclude dist --out doc --readme none --theme markdown --mdEngine github
+typedoc --exclude dist --out ./docs --readme none --theme markdown --mdEngine github
