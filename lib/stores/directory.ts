@@ -132,7 +132,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 						await this.getObjectDir ( id ),
 						'data'
 					),
-					await CarbyneDirectoryStore.pack ( obj.obj )
+					await CarbyneDirectoryStore.pack ( obj.data )
 				)
 		}
 	}

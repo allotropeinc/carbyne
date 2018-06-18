@@ -10,6 +10,7 @@ import {
 	TCarbyneDesObject,
 	TCarbyneRefInternal,
 	TCarbyneRefInternalArray,
+	TCarbyneRefInternalCustom,
 	TCarbyneRefInternalObject,
 	TCarbyneTypeExt,
 	TCarbyneTypeObj,
@@ -263,7 +264,7 @@ export class Carbyne {
 				}
 
 				if ( type === 'object' ) {
-					newObj.obj = {}
+					( <TCarbyneRefInternalObject> newObj ).obj = {}
 
 					const keys = Object.keys ( obj )
 
@@ -284,7 +285,7 @@ export class Carbyne {
 						)
 					}
 				} else if ( type === 'array' ) {
-					newObj.obj = []
+					( <TCarbyneRefInternalArray> newObj ).obj = []
 
 					for ( let i = 0, value ; value = obj[ i ], i < obj.length ; i++ ) {
 						await addKV (
@@ -293,7 +294,7 @@ export class Carbyne {
 						)
 					}
 				} else {
-					newObj.obj = await obj.serialize ()
+					( <TCarbyneRefInternalCustom> newObj ).data = await obj.serialize ()
 				}
 
 				await this.store.setRef (

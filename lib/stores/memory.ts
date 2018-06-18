@@ -1,5 +1,14 @@
-import * as uuid                                                                           from 'uuid'
-import { ICarbyneMemoryModel, ICarbyneStore, TCarbyneRef, TCarbyneTypeObj, TCarbyneValue } from '../index'
+import * as uuid from 'uuid'
+import {
+	ICarbyneMemoryModel,
+	ICarbyneStore,
+	TCarbyneRefInternal,
+	TCarbyneRefInternalArray,
+	TCarbyneRefInternalCustom,
+	TCarbyneRefInternalObject,
+	TCarbyneTypeObj,
+	TCarbyneValue
+}                from '../index'
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +27,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	 * @param {string} id
 	 * @returns {Promise<TCarbyneRefInternal>}
 	 */
-	protected async getRef ( id : string ) : Promise<TCarbyneRef & { obj : any }> {
+	protected async getRef ( id : string ) : Promise<TCarbyneRefInternal> {
 		let toReturn
 
 		if ( id === 'root' ) {
@@ -56,7 +65,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		id : string,
 		key : number | string
 	) {
-		return ( await this.getRef ( id ) ).obj[ key ]
+		return ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj[ key ]
 	}
 
 	async getType ( id : string ) : Promise<TCarbyneTypeObj> {
@@ -64,7 +73,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	}
 
 	async getLength ( id : string ) {
-		return ( await this.getRef ( id ) ).obj.length
+		return ( <TCarbyneRefInternalArray> await this.getRef ( id ) ).obj.length
 	}
 
 	async getKeys ( id : string ) : Promise<string[]> {
@@ -73,7 +82,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		if ( ref.type === 'object' ) {
 			return Object.keys ( ref.obj )
 		} else if ( ref.type === 'array' ) {
-			return [ ...ref.obj.keys () ]
+			return [ ...( <TCarbyneRefInternalArray> ref ).obj.keys () ].map ( ( x ) => x.toString () )
 		}
 
 		return []
@@ -84,24 +93,24 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		key : number | string,
 		value : TCarbyneValue
 	) {
-		( await this.getRef ( id ) ).obj[ key ] = value
+		( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj[ key ] = value
 	}
 
 	async push (
 		id : string,
 		value : TCarbyneValue
 	) {
-		( <any> await this.getRef ( id ) ).obj.push ( value )
+		( <TCarbyneRefInternalArray> await this.getRef ( id ) ).obj.push ( value )
 	}
 
 	async getData ( id : string ) {
-		return ( await this.getRef ( id ) ).obj
+		return ( <TCarbyneRefInternalCustom> await this.getRef ( id ) ).data
 	}
 
 	async setData (
 		id : string,
 		value : TCarbyneValue
 	) {
-		( await this.getRef ( id ) ).obj = value
+		( <TCarbyneRefInternalCustom> await this.getRef ( id ) ).data = value
 	}
 }

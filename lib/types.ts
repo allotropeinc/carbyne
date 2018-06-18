@@ -52,7 +52,9 @@ export type TCarbyneValueImplicit = {
 /**
  * All values.
  */
-export type TCarbyneValue = TCarbyneValueGeneral | TCarbyneValueImplicit
+export type TCarbyneValue =
+	TCarbyneValueGeneral |
+	TCarbyneValueImplicit
 
 /**
  * See [[TCarbyneRef]]
@@ -79,9 +81,21 @@ export interface ICarbyneRefSymbol {
 }
 
 /**
+ * See [[TCarbyneRef]]
+ */
+export interface ICarbyneRefCustom {
+	type : string
+	id : string
+}
+
+/**
  * A ref value, stored in [[TCarbyneRefs]].
  */
-export type TCarbyneRef = ICarbyneRefObject | ICarbyneRefArray | ICarbyneRefSymbol
+export type TCarbyneRef =
+	ICarbyneRefObject |
+	ICarbyneRefArray |
+	ICarbyneRefSymbol |
+	ICarbyneRefCustom
 
 /**
  * See [[TCarbyneRefInternal]]
@@ -107,9 +121,20 @@ export type TCarbyneRefInternalSymbol = {
 } & ICarbyneRefSymbol
 
 /**
+ * See [[TCarbyneRefInternal]]
+ */
+export type TCarbyneRefInternalCustom = {
+	data : any
+} & ICarbyneRefCustom
+
+/**
  * Internal refs used by [[ICarbyneStore]] methods.
  */
-export type TCarbyneRefInternal = TCarbyneRefInternalObject | TCarbyneRefInternalArray | TCarbyneRefInternalSymbol
+export type TCarbyneRefInternal =
+	TCarbyneRefInternalObject |
+	TCarbyneRefInternalArray |
+	TCarbyneRefInternalSymbol |
+	TCarbyneRefInternalCustom
 
 /**
  * Internal ref store used by [[ICarbyneStore]] methods.
@@ -128,7 +153,9 @@ export interface ICarbyneCache {
 /**
  * [[ICarbyneDesCache]]
  */
-export type TCarbyneDesObject = { [ key : string ] : any }
+export type TCarbyneDesObject = {
+	[ key : string ] : any
+}
 
 /**
  * [[ICarbyneDesCache]]
@@ -138,7 +165,11 @@ export type TCarbyneDesArray = Array<any>
 /**
  * [[ICarbyneDesCache]]
  */
-export type TCarbyneDesCached = TCarbyneDesObject | TCarbyneDesArray | Symbol | ICarbyneCustomObject
+export type TCarbyneDesCached =
+	TCarbyneDesObject |
+	TCarbyneDesArray |
+	Symbol |
+	ICarbyneCustomObject
 
 /**
  * Cache used by [[Carbyne.deserialize]].
