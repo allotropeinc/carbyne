@@ -214,16 +214,11 @@ export type TCarbyneMemoryModel = {
 export interface ICarbyneStore {
 	/**
 	 * Clears the database, immediately and irreversibly dropping all data.
-	 * `newRoot` is optional and specifies what you want ID `'root'` to be
-	 * replaced with. Defaults to empty object (`{}`).
+	 *[[Carbyne.fromObject]] uses this.
 	 *
-	 * [[Carbyne.fromObject]] uses this. You can use this manually if you ever
-	 * need to.
-	 *
-	 * @param {any} newRoot
 	 * @returns {Promise<void>}
 	 */
-	clear ( newRoot? : any ) : Promise<void>
+	clear () : Promise<void>
 
 	/**
 	 * Generates a new ID to use for objects. The default implementation simply
