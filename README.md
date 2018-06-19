@@ -40,12 +40,12 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ should store undefined
       ✓ should store Infinity
       ✓ should store -Infinity
-      ✓ should support deleting objects
       ✓ should store NaN
       ✓ should store objects
       ✓ should store arrays
       ✓ should store Symbols
       ✓ should store blobs
+      ✓ should support deleting objects
       ✓ should support circular references
       ✓ should support circular references in child arrays
       ✓ should support circular references in child objects
@@ -64,12 +64,12 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ should store undefined
       ✓ should store Infinity
       ✓ should store -Infinity
-      ✓ should support deleting objects
       ✓ should store NaN
       ✓ should store objects
       ✓ should store arrays
       ✓ should store Symbols
       ✓ should store blobs
+      ✓ should support deleting objects
       ✓ should support circular references
       ✓ should support circular references in child arrays
       ✓ should support circular references in child objects
