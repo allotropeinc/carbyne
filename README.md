@@ -31,53 +31,57 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
 
 <details><summary>`npm test` output</summary>
 <pre><code>  Carbyne
-    DirectoryStore
-      ✓ should support fromObject
-      ✓ should store booleans
-      ✓ should store numbers
-      ✓ should store strings
-      ✓ should store null
-      ✓ should store undefined
-      ✓ should store Infinity
-      ✓ should store -Infinity
-      ✓ should store NaN
-      ✓ should store objects
-      ✓ should store arrays
-      ✓ should store Symbols
-      ✓ should store blobs
-      ✓ should support circular references
-      ✓ should support circular references in child arrays
-      ✓ should support circular references in child objects
-      ✓ should support multiple copies of one object
-      ✓ should support multiple copies of one array
-      ✓ should support multiple copies of one symbol
-      ✓ should support multiple copies of one blob
-      ✓ should support copying a blob
-    MemoryStore
-      ✓ should support fromObject
-      ✓ should store booleans
-      ✓ should store numbers
-      ✓ should store strings
-      ✓ should store null
-      ✓ should store undefined
-      ✓ should store Infinity
-      ✓ should store -Infinity
-      ✓ should store NaN
-      ✓ should store objects
-      ✓ should store arrays
-      ✓ should store Symbols
-      ✓ should store blobs
-      ✓ should support circular references
-      ✓ should support circular references in child arrays
-      ✓ should support circular references in child objects
-      ✓ should support multiple copies of one object
-      ✓ should support multiple copies of one array
-      ✓ should support multiple copies of one symbol
-      ✓ should support multiple copies of one blob
-      ✓ should support copying a blob
+               DirectoryStore
+                 ✓ should support fromObject
+                 ✓ should store booleans
+                 ✓ should store numbers
+                 ✓ should store strings
+                 ✓ should store null
+                 ✓ should store undefined
+                 ✓ should store Infinity
+                 ✓ should store -Infinity
+                 ✓ should support deleting objects
+                 ✓ should store NaN
+                 ✓ should store objects
+                 ✓ should store arrays
+                 ✓ should store Symbols
+                 ✓ should store blobs
+                 ✓ should support circular references
+                 ✓ should support circular references in child arrays
+                 ✓ should support circular references in child objects
+                 ✓ should support multiple copies of one object
+                 ✓ should support multiple copies of one array
+                 ✓ should support multiple copies of one symbol
+                 ✓ should support multiple copies of one blob
+                 ✓ should support copying a blob
+                 ✓ should support custom objects
+               MemoryStore
+                 ✓ should support fromObject
+                 ✓ should store booleans
+                 ✓ should store numbers
+                 ✓ should store strings
+                 ✓ should store null
+                 ✓ should store undefined
+                 ✓ should store Infinity
+                 ✓ should store -Infinity
+                 ✓ should support deleting objects
+                 ✓ should store NaN
+                 ✓ should store objects
+                 ✓ should store arrays
+                 ✓ should store Symbols
+                 ✓ should store blobs
+                 ✓ should support circular references
+                 ✓ should support circular references in child arrays
+                 ✓ should support circular references in child objects
+                 ✓ should support multiple copies of one object
+                 ✓ should support multiple copies of one array
+                 ✓ should support multiple copies of one symbol
+                 ✓ should support multiple copies of one blob
+                 ✓ should support copying a blob
+                 ✓ should support custom objects
 
 
-  42 passing (79ms)</code></pre>
+             46 passing (91ms)</code></pre>
 </details><br />
 
 You can use the TypeScript typings provided, or [read the docs](https://allotropelabs.github.io/carbyne/). There's even a handy [Getting Started guide](https://github.com/allotropelabs/carbyne/wiki/Getting-Started-with-Carbyne)!
