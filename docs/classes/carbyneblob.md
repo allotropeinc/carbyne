@@ -2,6 +2,8 @@
 
 # Class: CarbyneBlob
 
+Our own custom object. Blobs have absolutely _no_ special handling, and Carbyne treats them just like any other custom object. [Carbyne.registerCustomObject](carbyne.md#registercustomobject) can be used to register your own custom objects.
+
 ## Hierarchy
 
 **CarbyneBlob**
@@ -36,7 +38,7 @@
 
 ⊕ **new CarbyneBlob**(data: *`Buffer`*, _id?: * `undefined` &#124; `string`*): [CarbyneBlob](carbyneblob.md)
 
-*Defined in [lib/blob.ts:4](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L4)*
+*Defined in [lib/blob.ts:10](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/blob.ts#L10)*
 
 **Parameters:**
 
@@ -59,7 +61,7 @@ ___
 
 *Implementation of [ICarbyneCustomObject](../interfaces/icarbynecustomobject.md).[_id](../interfaces/icarbynecustomobject.md#_id)*
 
-*Defined in [lib/blob.ts:4](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L4)*
+*Defined in [lib/blob.ts:10](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/blob.ts#L10)*
 
 ___
 <a id="data"></a>
@@ -68,7 +70,7 @@ ___
 
 **● data**: *`Buffer`*
 
-*Defined in [lib/blob.ts:7](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L7)*
+*Defined in [lib/blob.ts:13](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/blob.ts#L13)*
 
 ___
 
@@ -80,7 +82,19 @@ ___
 
 ▸ **copy**(): `Promise`<[CarbyneBlob](carbyneblob.md)>
 
-*Defined in [lib/blob.ts:23](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L23)*
+*Defined in [lib/blob.ts:45](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/blob.ts#L45)*
+
+Copies this `CarbyneBlob`, returning a new one representing a copy of the same data.
+
+Equivalent to:
+
+```typescript
+const newBuffer = Buffer.from ( [] )
+
+this.data.copy ( newBuffer )
+
+return new CarbyneBlob ( newBuffer )
+```
 
 **Returns:** `Promise`<[CarbyneBlob](carbyneblob.md)>
 
@@ -93,7 +107,7 @@ ___
 
 *Implementation of [ICarbyneCustomObject](../interfaces/icarbynecustomobject.md).[serialize](../interfaces/icarbynecustomobject.md#serialize)*
 
-*Defined in [lib/blob.ts:19](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L19)*
+*Defined in [lib/blob.ts:25](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/blob.ts#L25)*
 
 **Returns:** `Promise`<`Buffer`>
 

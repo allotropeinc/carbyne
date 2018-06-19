@@ -23,6 +23,7 @@
 ### Methods
 
 * [clear](carbynedirectorystore.md#clear)
+* [delKey](carbynedirectorystore.md#delkey)
 * [genID](carbynedirectorystore.md#genid)
 * [getData](carbynedirectorystore.md#getdata)
 * [getKey](carbynedirectorystore.md#getkey)
@@ -47,7 +48,7 @@
 
 ⊕ **new CarbyneDirectoryStore**(dirName: *`string`*): [CarbyneDirectoryStore](carbynedirectorystore.md)
 
-*Defined in [lib/stores/directory.ts:12](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L12)*
+*Defined in [lib/stores/directory.ts:12](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L12)*
 
 **Parameters:**
 
@@ -67,7 +68,7 @@ ___
 
 **● dirName**: *`string`*
 
-*Defined in [lib/stores/directory.ts:12](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L12)*
+*Defined in [lib/stores/directory.ts:12](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L12)*
 
 ___
 
@@ -81,13 +82,33 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[clear](../interfaces/icarbynestore.md#clear)*
 
-*Defined in [lib/stores/directory.ts:58](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L58)*
+*Defined in [lib/stores/directory.ts:58](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L58)*
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
 | `Optional` newRoot | `any` |
+
+**Returns:** `Promise`<`void`>
+
+___
+<a id="delkey"></a>
+
+###  delKey
+
+▸ **delKey**(id: *`string`*, key: * `number` &#124; `string`*): `Promise`<`void`>
+
+*Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[delKey](../interfaces/icarbynestore.md#delkey)*
+
+*Defined in [lib/stores/directory.ts:232](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L232)*
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| id | `string` |
+| key |  `number` &#124; `string`|
 
 **Returns:** `Promise`<`void`>
 
@@ -100,7 +121,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[genID](../interfaces/icarbynestore.md#genid)*
 
-*Defined in [lib/stores/directory.ts:63](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L63)*
+*Defined in [lib/stores/directory.ts:63](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L63)*
 
 **Returns:** `Promise`<`string`>
 
@@ -113,7 +134,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getData](../interfaces/icarbynestore.md#getdata)*
 
-*Defined in [lib/stores/directory.ts:208](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L208)*
+*Defined in [lib/stores/directory.ts:208](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L208)*
 
 **Parameters:**
 
@@ -132,7 +153,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getKey](../interfaces/icarbynestore.md#getkey)*
 
-*Defined in [lib/stores/directory.ts:140](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L140)*
+*Defined in [lib/stores/directory.ts:140](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L140)*
 
 **Parameters:**
 
@@ -152,7 +173,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getKeys](../interfaces/icarbynestore.md#getkeys)*
 
-*Defined in [lib/stores/directory.ts:190](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L190)*
+*Defined in [lib/stores/directory.ts:190](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L190)*
 
 **Parameters:**
 
@@ -171,7 +192,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getLength](../interfaces/icarbynestore.md#getlength)*
 
-*Defined in [lib/stores/directory.ts:186](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L186)*
+*Defined in [lib/stores/directory.ts:186](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L186)*
 
 **Parameters:**
 
@@ -188,7 +209,7 @@ ___
 
 ▸ **getObjectDir**(id: *`string`*): `Promise`<`string`>
 
-*Defined in [lib/stores/directory.ts:43](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L43)*
+*Defined in [lib/stores/directory.ts:43](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L43)*
 
 Gets the directory an object is stored in.
 
@@ -209,7 +230,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getType](../interfaces/icarbynestore.md#gettype)*
 
-*Defined in [lib/stores/directory.ts:176](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L176)*
+*Defined in [lib/stores/directory.ts:176](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L176)*
 
 **Parameters:**
 
@@ -228,7 +249,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[push](../interfaces/icarbynestore.md#push)*
 
-*Defined in [lib/stores/directory.ts:197](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L197)*
+*Defined in [lib/stores/directory.ts:197](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L197)*
 
 **Parameters:**
 
@@ -246,7 +267,7 @@ ___
 
 ▸ **setData**(id: *`string`*, value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`void`>
 
-*Defined in [lib/stores/directory.ts:219](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L219)*
+*Defined in [lib/stores/directory.ts:219](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L219)*
 
 **Parameters:**
 
@@ -266,7 +287,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[setKey](../interfaces/icarbynestore.md#setkey)*
 
-*Defined in [lib/stores/directory.ts:155](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L155)*
+*Defined in [lib/stores/directory.ts:155](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L155)*
 
 **Parameters:**
 
@@ -287,7 +308,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[setRef](../interfaces/icarbynestore.md#setref)*
 
-*Defined in [lib/stores/directory.ts:67](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L67)*
+*Defined in [lib/stores/directory.ts:67](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L67)*
 
 **Parameters:**
 
@@ -305,7 +326,7 @@ ___
 
 ▸ **pack**(obj: *`any`*): `Promise`<`Buffer`>
 
-*Defined in [lib/stores/directory.ts:25](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L25)*
+*Defined in [lib/stores/directory.ts:25](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L25)*
 
 Packs an object into a packed format for storage.
 
@@ -324,7 +345,7 @@ ___
 
 ▸ **unpack**(buf: *`Buffer`*): `Promise`<`any`>
 
-*Defined in [lib/stores/directory.ts:34](https://github.com/allotropelabs/carbyne/blob/516c028/lib/stores/directory.ts#L34)*
+*Defined in [lib/stores/directory.ts:34](https://github.com/allotropelabs/carbyne/blob/0c99248/lib/stores/directory.ts#L34)*
 
 Unpacks an object encoded in a packed format.
 
