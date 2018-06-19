@@ -2,7 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
-@import "monokai-theme.scss";
+@import "./monokai-theme";
 @import url("https://fonts.googleapis.com/css?family=Overpass:100,200,200i,300,600");
 @import url("https://fonts.googleapis.com/css?family=Overpass+Mono:200");
 
