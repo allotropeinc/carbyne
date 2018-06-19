@@ -33,7 +33,7 @@ A custom object. See [Carbyne.registerCustomObject](../classes/carbyne.md#regist
 **● _id**: * `string` &#124; `undefined`
 *
 
-*Defined in [lib/types.ts:353](https://github.com/allotropelabs/carbyne/blob/bc02ac6/lib/types.ts#L353)*
+*Defined in [lib/types.ts:348](https://github.com/allotropelabs/carbyne/blob/373c3f0/lib/types.ts#L348)*
 
 The ID of this custom object. Undefined if it hasn't been recoreded in the database yet.
 
@@ -47,7 +47,7 @@ ___
 
 ▸ **serialize**(): `Promise`<`any`>
 
-*Defined in [lib/types.ts:361](https://github.com/allotropelabs/carbyne/blob/bc02ac6/lib/types.ts#L361)*
+*Defined in [lib/types.ts:356](https://github.com/allotropelabs/carbyne/blob/373c3f0/lib/types.ts#L356)*
 
 Serialize this custom object, return an object that can be passed to MessagePack.
 
