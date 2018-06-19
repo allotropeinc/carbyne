@@ -25,7 +25,7 @@ See [TCarbyneRef](../#tcarbyneref)
 
 **● id**: *`string`*
 
-*Defined in [lib/types.ts:64](https://github.com/allotropelabs/carbyne/blob/c2e180b/lib/types.ts#L64)*
+*Defined in [lib/types.ts:64](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/types.ts#L64)*
 
 ___
 <a id="type"></a>
@@ -34,7 +34,7 @@ ___
 
 **● type**: *"object"*
 
-*Defined in [lib/types.ts:63](https://github.com/allotropelabs/carbyne/blob/c2e180b/lib/types.ts#L63)*
+*Defined in [lib/types.ts:63](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/types.ts#L63)*
 
 ___
 

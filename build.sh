@@ -3,8 +3,9 @@
 rm -rf dist
 tsc
 
-mv docs/_config.yml .
-mv docs/assets .
+rm -rf docs/classes docs/interfaces docs/README.md
+mkdir _docs
+mv docs/* _docs
 typedoc --exclude dist --out ./docs --readme none --mode file --theme markdown --mdEngine github
-mv _config.yml docs
-mv assets docs
+mv _docs/* docs
+rm -rf _docs
