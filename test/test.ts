@@ -94,48 +94,6 @@ describe (
 					)
 
 					it (
-						'should support deleting objects',
-						async () => {
-							await db.setKey (
-								'root',
-								'deleted',
-								false
-							)
-
-							expect (
-								await db.toObject (
-									await db.getKey (
-										'root',
-										'deleted'
-									)
-								)
-							).to.equal ( false )
-
-							await db.delKey (
-								'root',
-								'deleted'
-							)
-
-							try {
-								if (
-									await db.toObject (
-										await db.getKey (
-											'root',
-											'deleted'
-										)
-									) !== false
-								) {
-									return
-								}
-							} catch {
-								return
-							}
-
-							throw new TypeError ( 'key still exists :(' )
-						}
-					)
-
-					it (
 						'should store NaN',
 						async () => {
 							await db.setKey (
@@ -234,6 +192,48 @@ describe (
 									)
 								)
 							).to.be.an.instanceof ( CarbyneBlob )
+						}
+					)
+
+					it (
+						'should support deleting keys',
+						async () => {
+							await db.setKey (
+								'root',
+								'deleted',
+								false
+							)
+
+							expect (
+								await db.toObject (
+									await db.getKey (
+										'root',
+										'deleted'
+									)
+								)
+							).to.equal ( false )
+
+							await db.delKey (
+								'root',
+								'deleted'
+							)
+
+							try {
+								if (
+									await db.toObject (
+										await db.getKey (
+											'root',
+											'deleted'
+										)
+									) !== false
+								) {
+									return
+								}
+							} catch {
+								return
+							}
+
+							throw new TypeError ( 'key still exists :(' )
 						}
 					)
 
