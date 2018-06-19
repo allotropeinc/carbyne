@@ -2,7 +2,8 @@
 ---
 
 @import "{{ site.theme }}";
-@import url('https://fonts.googleapis.com/css?family=Overpass:200,300,300i,600');
+@import url("https://fonts.googleapis.com/css?family=Overpass:100,200,200i,300,600");
+@import url("https://fonts.googleapis.com/css?family=Overpass+Mono:200");
 
 #header {
 	display: none;
@@ -12,15 +13,23 @@ section {
 	margin-top: 6px;
 }
 
-body, body * {
+body, h1, h2, h3, h4, h5, h6, strong, th, dt, section #title p, section #title .credits {
 	font-family: Overpass, sans-serif !important;
+	font-weight: 200;
+}
+
+section #title .credits {
 	font-weight: 300;
 }
 
-strong {
+strong, th, dt {
 	font-weight: 600;
 }
 
 section #title h1 {
-	font-weight: 200;
+	font-weight: 100;
+}
+
+pre, code, kbd, samp {
+	font-family: 'Overpass Mono';
 }
