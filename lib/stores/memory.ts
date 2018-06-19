@@ -1,7 +1,7 @@
 import * as uuid from 'uuid'
 import {
-	ICarbyneMemoryModel,
 	ICarbyneStore,
+	TCarbyneMemoryModel,
 	TCarbyneRefInternal,
 	TCarbyneRefInternalArray,
 	TCarbyneRefInternalCustom,
@@ -15,7 +15,7 @@ import {
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 export class CarbyneMemoryStore implements ICarbyneStore {
-	protected model : ICarbyneMemoryModel = {
+	protected model : TCarbyneMemoryModel = {
 		root : null,
 		refs : {}
 	}
@@ -40,7 +40,7 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	}
 
 	async clear ( newRoot? : any ) {
-		this.model = <ICarbyneMemoryModel> {
+		this.model = <TCarbyneMemoryModel> {
 			root : newRoot || {},
 			refs : {}
 		}
@@ -112,5 +112,12 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		value : TCarbyneValue
 	) {
 		( <TCarbyneRefInternalCustom> await this.getRef ( id ) ).data = value
+	}
+
+	async delKey (
+		id : string,
+		key : number | string
+	) {
+		delete ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj[ key ]
 	}
 }

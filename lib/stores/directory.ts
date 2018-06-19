@@ -228,4 +228,17 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 			await CarbyneDirectoryStore.pack ( value )
 		)
 	}
+
+	async delKey (
+		id : string,
+		key : number | string
+	) {
+		await fs.unlink (
+			path.join (
+				await this.getObjectDir ( id ),
+				'keys',
+				key.toString ()
+			)
+		)
+	}
 }

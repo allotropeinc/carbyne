@@ -1,12 +1,12 @@
 import {
 	CarbyneBlob,
 	CarbyneMemoryStore,
-	ICarbyneCache,
 	ICarbyneCustomObject,
 	ICarbyneCustomObjectConstructor,
-	ICarbyneDesCache,
 	ICarbyneStore,
+	TCarbyneCache,
 	TCarbyneDesArray,
+	TCarbyneDesCache,
 	TCarbyneDesObject,
 	TCarbyneRefInternal,
 	TCarbyneRefInternalArray,
@@ -97,6 +97,8 @@ export const objTypes = {
  * import { Carbyne, CarbyneMemoryStore } from 'carbyne-db'
  *
  * const db = new Carbyne ( new CarbyneMemoryStore () )
+ *
+ * // ...
  * ```
  */
 export class Carbyne {
@@ -104,13 +106,13 @@ export class Carbyne {
 	 * The cache of serialized items that are used to protect against infinite
 	 * recursion and copies.
 	 */
-	protected serializeCache : ICarbyneCache
+	protected serializeCache : TCarbyneCache
 
 	/**
 	 * The cache of deserialized items that are used to protect against infinite
 	 * recursion and copies.
 	 */
-	protected deserializeCache : ICarbyneDesCache
+	protected deserializeCache : TCarbyneDesCache
 
 	/**
 	 * Used so we don't make unnecessary copies of symbols with the same ID.
@@ -118,19 +120,30 @@ export class Carbyne {
 	protected symbolIds : any
 
 	/**
-	 * The `ICarbyneStore` currently in use by the database.
+	 * The [[ICarbyneStore]] currently in use by the database. Pass this as an
+	 * argument to [[Carbyne.constructor]].
 	 */
 	protected store : ICarbyneStore
 
 	/**
-	 * The registry of custom objects the database can use.
+	 * The registry of custom objects the database can use. Use
+	 * [[Carbyne.registerCustomObject]] to add one of these.
 	 */
 	protected customObjects : { [ name : string ] : ICarbyneCustomObjectConstructor }
 
 	/**
 	 * Create the database.
 	 *
-	 * @param {ICarbyneStore} store The store to use for the database.
+	 * ```typescript
+	 * import { Carbyne, CarbyneDirectoryStore } from 'carbyne-db'
+	 *
+	 * const db = new Carbyne ( new CarbyneDirectoryStore ( 'test-db' ) )
+	 *
+	 * // ...
+	 * ```
+	 *
+	 * @param {ICarbyneStore} store The store to use for the database. See
+	 * [[Carbyne.customObjects]] and [[Carbyne.registerCustomObject]].
 	 */
 	constructor ( store? : ICarbyneStore ) {
 		if ( !store ) {
@@ -151,6 +164,10 @@ export class Carbyne {
 	/**
 	 * Gets the type of an object. This is used internally by `serialize()` to
 	 * figure out what to store objects as.
+	 *
+	 * ```typescript
+	 * await db.getType ( 5 ) // 'number'
+	 * ```
 	 *
 	 * @param obj The object to get the type of.
 	 * @returns {Promise<TCarbyneTypeExt | string>} Returns `TCarbyneTypeExt` if
@@ -195,6 +212,40 @@ export class Carbyne {
 	/**
 	 * Serializes an object into storage. Utilizes recursion and caching to
 	 * support circular references and references to past serialized objects.
+	 *
+	 * ```typescript
+	 * await db.serialize (
+	 *     {
+	 *         bool   : true,
+	 *         number : 42,
+	 *         null   : null
+	 *     },
+	 *     'root'
+	 * )
+	 * ```
+	 *
+	 * The example above would be serialized in a [[CarbyneMemoryStore]] as:
+	 *
+	 * ```json
+	 * {
+	 *     "bool": {
+	 *         "type": "bool",
+	 *         "data": true
+	 *     },
+	 *     "number": {
+	 *         "type": "number",
+	 *         "data": 42
+	 *     },
+	 *     "null": {
+	 *         "type": "null"
+	 *     }
+	 * }
+	 * ```
+	 *
+	 * Note that instead of using this method directly, which is `protected`,
+	 * you should use [[Carbyne.fromObject]] instead. [[Carbyne.setKey]]
+	 * automatically serializes what you pass into it, so there is no need to
+	 * manually do this.
 	 *
 	 * @param obj The object to serialize. Can be anything, honestly.
 	 * @param {string} id The ID to give the new object. This is important.
@@ -318,8 +369,18 @@ export class Carbyne {
 	}
 
 	/**
-	 * Converts a `TCarbyneValue` into its primitive counterpart. Does not
-	 * support references, objects, arrays, Symbols, or custom objects.
+	 * Converts a [[TCarbyneValue]] into its primitive counterpart. Note that
+	 * this function doesn't support primitives, objects, arrays, Symbols, or
+	 * custom objects. Basically, it converts this:
+	 *
+	 * ```json
+	 * {
+	 *     "type": "number",
+	 *     "data": 42
+	 * }
+	 * ```
+	 *
+	 * to, for example, `42` in this case.
 	 *
 	 * @param {TCarbyneValue} value The value to convert.
 	 * @returns {Promise<any>} The new primitive after conversion.
@@ -356,8 +417,19 @@ export class Carbyne {
 	 * and caching to support circular references and references to past
 	 * deserialized objects.
 	 *
-	 * @param {string | TCarbyneValue} obj The `string` ID or `TCarbyneValue`
-	 * value to deserialize.
+	 * For example, if you have the [[Carbyne.serialize]] example, it would
+	 * output basically exactly what you put into it in that example (it would
+	 * be a different object, though, but with the same data). Deserializing
+	 * multiple times returns the same object, because of
+	 * [[Carbyne.deserializeCache]].
+	 *
+	 * Note that, just like [[Carbyne.serialize]], this is `protected` and
+	 * you should call another method that uses it instead, such as
+	 * [[Carbyne.toObject]].
+	 *
+	 * @param {string | TCarbyneValue} obj The `string` ID or [[TCarbyneValue]]
+	 * value to deserialize. If it's a `string` ID, it's assumed you want the
+	 * object that ID points to.
 	 * @returns {Promise<any>} The deserialized object.
 	 */
 	protected async deserialize (
@@ -447,12 +519,25 @@ export class Carbyne {
 	}
 
 	/**
-	 * Creates a Carbyne model from an object. Be advised this does wipe the
-	 * database.
+	 * Creates a Carbyne model from an object. This does wipe the database in
+	 * the case of a [[CarbyneDirectoryStore]], so be careful. It would be
+	 * advised to check the directory first for files to make sure it's empty
+	 * before calling this function.
+	 *
+	 * This is equivalent to the code:
+	 *
+	 * ```typescript
+	 * const db = new Carbyne ( store )
+	 * await db.clear ( obj )
+	 *
+	 * return db
+	 * ```
+	 *
+	 * because that is the real source code of the function.
 	 *
 	 * @param obj The object to use as ID `'root'`.
 	 * @param {ICarbyneStore} store The store to use. Defaults to
-	 * `CarbyneMemoryStore`.
+	 * [[CarbyneMemoryStore]] like [[Carbyne.constructor]].
 	 * @returns {Promise<Carbyne>}
 	 */
 	static async fromObject (
@@ -460,27 +545,26 @@ export class Carbyne {
 		store? : ICarbyneStore
 	) {
 		const db = new Carbyne ( store )
-		await db.clear ()
-
-		await db.serialize (
-			obj,
-			'root'
-		)
+		await db.clear ( obj )
 
 		return db
 	}
 
 	/**
 	 * Clears the database, immediately and irreversibly dropping all data.
-	 * `newObj` is optional and specifies what you want ID `'root'` to be
-	 * replaced with. Defaults to empty object (`{}`)
+	 * `newRoot` is optional and specifies what you want ID `'root'` to be
+	 * replaced with. Defaults to empty object (`{}`).
 	 *
+	 * [[Carbyne.fromObject]] uses this. You can use this manually if you ever
+	 * need to.
+	 *
+	 * @param {any} newRoot
 	 * @returns {Promise<void>}
 	 */
-	async clear ( newObj? : any ) {
+	async clear ( newRoot? : any ) {
 		await this.store.clear (
-			newObj ? await this.serialize (
-				newObj,
+			newRoot ? await this.serialize (
+				newRoot,
 				'root'
 			) : undefined
 		)
@@ -488,8 +572,7 @@ export class Carbyne {
 
 	/**
 	 * Deserializes an object, specified by ID, value, or reference, and returns
-	 * it.
-	 *
+	 * it. This uses [[Carbyne.deserialize]] internally.
 	 *
 	 * @param obj The object or ID to deserialize. Defaults to `'root'`.
 	 * @returns {Promise<any>} The deserialized object.
@@ -500,6 +583,7 @@ export class Carbyne {
 
 	/**
 	 * Sets the key `key` of object `obj` to `value`. Pretty self-explanatory.
+	 * This also sets the key of any current deserialized objects.
 	 *
 	 * @param obj The object or ID to target.
 	 * @param {string | number} key The key to target.
@@ -539,11 +623,12 @@ export class Carbyne {
 
 	/**
 	 * Resolves the ID of `obj`. Can take strings, references, and deserialized
-	 * objects too.
+	 * objects too. This is used by internal [[Carbyne]] functions to allow you
+	 * to pass anything from strings to deserialized objects to methods like
+	 * [[Carbyne.getKey]] or [[Carbyne.setKey]].
 	 *
 	 * @param obj The object to resolve.
 	 * @returns {Promise<string>} The resolved ID.
-	 * @throws {TypeError} If the object does not exist in the database.
 	 */
 	protected static async resolveId ( obj : any ) : Promise<string> {
 		if ( typeof obj === 'string' ) {
@@ -578,7 +663,8 @@ export class Carbyne {
 
 	/**
 	 * Pushes `value` to array `obj`. Works with objects too, I guess. It
-	 * honestly doesn't care.
+	 * honestly doesn't care. [[ICarbyneStore.push]] basically just calls
+	 * `await db.setKey ( await db.keys ( obj ).length, value )`.
 	 *
 	 * @param obj The object to target.
 	 * @param {string | number} value The value to push to `obj`.
@@ -607,7 +693,10 @@ export class Carbyne {
 
 	/**
 	 * Sets the data of `obj` to `data`. Only use on custom objects. `obj` can
-	 * be an ID, reference, or deserialized object.
+	 * be an ID, reference, or deserialized object. If you use this on
+	 * non-custom objects, weird bugs may pop up and you may have a bad time.
+	 *
+	 * This does not serialize data.
 	 *
 	 * @param obj The ID or object to target.
 	 * @param data The data to set the object to.
@@ -631,7 +720,7 @@ export class Carbyne {
 
 	/**
 	 * Gets the data of `obj`. `obj` can be an ID, reference, or deserialized
-	 * object.
+	 * object. Uses [[Carbyne.resolveId]].
 	 *
 	 * @param obj The object to target.
 	 * @returns {Promise<any>} The data of `obj`.
@@ -642,7 +731,7 @@ export class Carbyne {
 
 	/**
 	 * Registers a new custom object. `name` is the `type`, and `cls` is the
-	 * class (not an instance of it).
+	 * class (not an instance of it). See [[Carbyne.customObjects]].
 	 *
 	 * @param {string} name The name (type) of the new object.
 	 * @param {ICarbyneCustomObjectConstructor} cls The class to use.
@@ -653,5 +742,24 @@ export class Carbyne {
 		cls : ICarbyneCustomObjectConstructor
 	) {
 		this.customObjects[ name ] = cls
+	}
+
+	/**
+	 * This deletes the key `key` in object `obj`.
+	 *
+	 * @param obj
+	 * @param {number | string} key
+	 * @returns {Promise<void>}
+	 */
+	async delKey (
+		obj : any,
+		key : number | string
+	) {
+		const id = await Carbyne.resolveId ( obj )
+
+		await this.store.delKey (
+			id,
+			key
+		)
 	}
 }

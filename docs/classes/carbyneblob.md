@@ -36,7 +36,7 @@
 
 ⊕ **new CarbyneBlob**(data: *`Buffer`*, _id?: * `undefined` &#124; `string`*): [CarbyneBlob](carbyneblob.md)
 
-*Defined in [lib/blob.ts:4](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/blob.ts#L4)*
+*Defined in [lib/blob.ts:4](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L4)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ ___
 
 *Implementation of [ICarbyneCustomObject](../interfaces/icarbynecustomobject.md).[_id](../interfaces/icarbynecustomobject.md#_id)*
 
-*Defined in [lib/blob.ts:4](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/blob.ts#L4)*
+*Defined in [lib/blob.ts:4](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L4)*
 
 ___
 <a id="data"></a>
@@ -68,7 +68,7 @@ ___
 
 **● data**: *`Buffer`*
 
-*Defined in [lib/blob.ts:7](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/blob.ts#L7)*
+*Defined in [lib/blob.ts:7](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L7)*
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 ▸ **copy**(): `Promise`<[CarbyneBlob](carbyneblob.md)>
 
-*Defined in [lib/blob.ts:23](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/blob.ts#L23)*
+*Defined in [lib/blob.ts:23](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L23)*
 
 **Returns:** `Promise`<[CarbyneBlob](carbyneblob.md)>
 
@@ -93,7 +93,7 @@ ___
 
 *Implementation of [ICarbyneCustomObject](../interfaces/icarbynecustomobject.md).[serialize](../interfaces/icarbynecustomobject.md#serialize)*
 
-*Defined in [lib/blob.ts:19](https://github.com/allotropelabs/carbyne/blob/be8734a/lib/blob.ts#L19)*
+*Defined in [lib/blob.ts:19](https://github.com/allotropelabs/carbyne/blob/516c028/lib/blob.ts#L19)*
 
 **Returns:** `Promise`<`Buffer`>
 
