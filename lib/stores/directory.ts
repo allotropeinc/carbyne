@@ -55,9 +55,8 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		)
 	}
 
-	async clear ( newRoot? : any ) {
+	async clear ( ) {
 		await fs.emptyDir ( this.dirName )
-		await this.setRef ( 'root', newRoot || {} )
 	}
 
 	async genID () {

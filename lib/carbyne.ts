@@ -562,12 +562,14 @@ export class Carbyne {
 	 * @returns {Promise<void>}
 	 */
 	async clear ( newRoot? : any ) {
-		await this.store.clear (
-			newRoot ? await this.serialize (
+		await this.store.clear ()
+
+		if ( newRoot ) {
+			await this.serialize (
 				newRoot,
 				'root'
-			) : undefined
-		)
+			)
+		}
 	}
 
 	/**

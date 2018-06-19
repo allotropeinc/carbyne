@@ -39,9 +39,9 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		return toReturn
 	}
 
-	async clear ( newRoot? : any ) {
+	async clear () {
 		this.model = <TCarbyneMemoryModel> {
-			root : newRoot || {},
+			root : {},
 			refs : {}
 		}
 	}
