@@ -1,7 +1,7 @@
 /**
- * These are general types that need [[TCarbyneValueGeneral.data]]. This
- * includes booleans, numbers, strings, and references, because the type does
- * not tell Carbyne what the value should be.
+ * These are general types that need a `data` property. This includes booleans,
+ * numbers, strings, and references, because the type does not tell Carbyne what
+ * the value should be.
  *
  * For example, a number could be `1`, `2`, or `5`, Carbyne doesn't know. In
  * contrast, Carbyne knows what a [[TCarbyneTypeImplicit]] is, because there is,
@@ -14,10 +14,10 @@ export type TCarbyneTypeGeneral =
 	'reference'
 
 /**
- * These are implicit types that don't need [[TCarbyneValueGeneral.data]]. This
- * includes `null`, `undefined`, `+Infinity`, `-Infinity`, and `NaN`. These are
- * all special values that there are never more than one instance of, so there
- * is no need for a data property like [[TCarbyneTypeGeneral]] has.
+ * These are implicit types that don't need a `data` property. This includes
+ * `null`, `undefined`, `+Infinity`, `-Infinity`, and `NaN`. These are all
+ * special values that there are never more than one instance of, so there is no
+ * need for a data property like [[TCarbyneTypeGeneral]] has.
  */
 export type TCarbyneTypeImplicit =
 	'null' |
@@ -28,8 +28,8 @@ export type TCarbyneTypeImplicit =
 
 /**
  * These are the types of objects. They have, instead of
- * [[TCarbyneValueGeneral.data]], a [[TCarbyneRefInternal.obj]] property.
- * However, only internal [[ICarbyneStore]] methods access the `obj` property.
+ * a `data` property, an `obj` property. However, only internal
+ * [[ICarbyneStore]] methods access the `obj` property.
  */
 export type TCarbyneTypeObj =
 	'object' |
