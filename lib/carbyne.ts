@@ -764,4 +764,18 @@ export class Carbyne {
 			key
 		)
 	}
+
+	/**
+	 * Returns a reference to the root object.
+	 *
+	 * Equivalent to `return { type : 'reference', data : 'root' }`.
+	 *
+	 * @returns {Promise<TCarbyneValue>}
+	 */
+	async getRoot () {
+		return {
+			type : 'reference',
+			data : 'root'
+		}
+	}
 }
