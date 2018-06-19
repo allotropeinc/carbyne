@@ -14,12 +14,32 @@ import {
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+/**
+ * A store that uses exclusively memory to store a Carbyne database. **Does
+ * not** support saving to a file or otherwise persisting data. This is meant
+ * purely for testing or temporary data and should not be used for anything
+ * you want to save. Anyway, example:
+ *
+ * ```typescript
+ * import { Carbyne, CarbyneMemoryStore } from 'carbyne-db'
+ *
+ * const store = new CarbyneMemoryStore ()
+ * const db = new Carbyne ( store )
+ *
+ * // hurray!
+ * ```
+ */
 export class CarbyneMemoryStore implements ICarbyneStore {
 	protected model : TCarbyneMemoryModel = {
 		root : null,
 		refs : {}
 	}
 
+	/**
+	 * Initializes the store. Ish. This does absolutely nothing, and it doesn't
+	 * need to do anything. [[Carbyne]] will call methods on it when it needs to
+	 * use the store.
+	 */
 	constructor () {}
 
 	/**

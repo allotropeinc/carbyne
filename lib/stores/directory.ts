@@ -8,9 +8,27 @@ import { ICarbyneStore, TCarbyneTypeObj, TCarbyneValue } from '../index'
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+/**
+ * A store that uses a directory to store data rather than memory or a single
+ * file. Example:
+ *
+ * ```typescript
+ * import { Carbyne, CarbyneDirectoryStore } from 'carbyne-db'
+ *
+ * const store = new CarbyneDirectoryStore ( 'test-db' )
+ * const db = new Carbyne ( store )
+ *
+ * // hurray!
+ * ```
+ */
 export class CarbyneDirectoryStore implements ICarbyneStore {
 	protected dirName : string
 
+	/**
+	 * Initialize the store with the given `dirName`.
+	 *
+	 * @param {string} dirName
+	 */
 	constructor (
 		dirName : string
 	) {
@@ -55,7 +73,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		)
 	}
 
-	async clear ( ) {
+	async clear () {
 		await fs.emptyDir ( this.dirName )
 	}
 
