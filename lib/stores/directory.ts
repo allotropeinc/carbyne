@@ -258,4 +258,24 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 			)
 		)
 	}
+
+	async hasKey (
+		id : string,
+		key : number | string
+	) {
+		try {
+			await fs.access (
+				path.join (
+					await this.getObjectDir ( id ),
+					'keys',
+					key.toString ()
+				),
+				fs.constants.F_OK
+			)
+
+			return true
+		} catch {
+			return false
+		}
+	}
 }
