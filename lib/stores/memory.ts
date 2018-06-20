@@ -51,9 +51,9 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		let toReturn
 
 		if ( id === 'root' ) {
-			toReturn = <any> this.model.root
+			toReturn = <TCarbyneRefInternal> this.model.root
 		} else {
-			toReturn = <any> this.model.refs[ id ]
+			toReturn = <TCarbyneRefInternal> this.model.refs[ id ]
 		}
 
 		return toReturn
@@ -145,6 +145,6 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		id : string,
 		key : number | string
 	) {
-		return ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).hasOwnProperty ( key )
+		return ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj.hasOwnProperty ( key )
 	}
 }
