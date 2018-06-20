@@ -597,15 +597,7 @@ export class Carbyne {
 		key : string | number,
 		value : any
 	) {
-		if ( typeof obj === 'string' ) {
-			obj = { _id : obj }
-		} else if ( !obj._id ) {
-			if ( obj.hasOwnProperty ( 'type' ) && obj.type === 'reference' && obj.hasOwnProperty ( 'data' ) ) {
-				obj = { _id : obj.data }
-			} else {
-				throw new TypeError ( 'object does not exist in database' )
-			}
-		}
+		const id = await Carbyne.resolveId ( obj )
 
 		const serialized = await this.serialize (
 			value,
@@ -613,13 +605,13 @@ export class Carbyne {
 		)
 
 		await this.store.setKey (
-			obj._id,
+			id,
 			key,
 			serialized
 		)
 
-		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( obj._id ) ) {
-			( <TCarbyneDesObject> this.deserializeCache [ obj._id ] )[ key ] = await this.deserialize ( serialized )
+		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( id ) ) {
+			( <TCarbyneDesObject> this.deserializeCache [ id ] )[ key ] = await this.deserialize ( serialized )
 		}
 	}
 
