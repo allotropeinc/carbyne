@@ -58,7 +58,7 @@ const db = new Carbyne ( store )
 
 ⊕ **new CarbyneMemoryStore**(): [CarbyneMemoryStore](carbynememorystore.md)
 
-*Defined in [lib/stores/memory.ts:36](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L36)*
+*Defined in [lib/stores/memory.ts:36](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L36)*
 
 Initializes the store. Ish. This does absolutely nothing, and it doesn't need to do anything. [Carbyne](carbyne.md) will call methods on it when it needs to use the store.
 
@@ -76,7 +76,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[clear](../interfaces/icarbynestore.md#clear)*
 
-*Defined in [lib/stores/memory.ts:62](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L62)*
+*Defined in [lib/stores/memory.ts:62](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L62)*
 
 **Returns:** `Promise`<`void`>
 
@@ -89,7 +89,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[delKey](../interfaces/icarbynestore.md#delkey)*
 
-*Defined in [lib/stores/memory.ts:137](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L137)*
+*Defined in [lib/stores/memory.ts:137](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L137)*
 
 **Parameters:**
 
@@ -109,7 +109,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[genID](../interfaces/icarbynestore.md#genid)*
 
-*Defined in [lib/stores/memory.ts:69](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L69)*
+*Defined in [lib/stores/memory.ts:69](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L69)*
 
 **Returns:** `Promise`<`string`>
 
@@ -122,7 +122,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getData](../interfaces/icarbynestore.md#getdata)*
 
-*Defined in [lib/stores/memory.ts:126](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L126)*
+*Defined in [lib/stores/memory.ts:126](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L126)*
 
 **Parameters:**
 
@@ -141,7 +141,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getKey](../interfaces/icarbynestore.md#getkey)*
 
-*Defined in [lib/stores/memory.ts:84](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L84)*
+*Defined in [lib/stores/memory.ts:84](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L84)*
 
 **Parameters:**
 
@@ -161,7 +161,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getKeys](../interfaces/icarbynestore.md#getkeys)*
 
-*Defined in [lib/stores/memory.ts:99](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L99)*
+*Defined in [lib/stores/memory.ts:99](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L99)*
 
 **Parameters:**
 
@@ -180,7 +180,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getLength](../interfaces/icarbynestore.md#getlength)*
 
-*Defined in [lib/stores/memory.ts:95](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L95)*
+*Defined in [lib/stores/memory.ts:95](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L95)*
 
 **Parameters:**
 
@@ -197,7 +197,7 @@ ___
 
 ▸ **getRef**(id: *`string`*): `Promise`<[TCarbyneRefInternal](../#tcarbynerefinternal)>
 
-*Defined in [lib/stores/memory.ts:50](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L50)*
+*Defined in [lib/stores/memory.ts:50](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L50)*
 
 Gets an object specified by ID.
 
@@ -218,7 +218,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[getType](../interfaces/icarbynestore.md#gettype)*
 
-*Defined in [lib/stores/memory.ts:91](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L91)*
+*Defined in [lib/stores/memory.ts:91](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L91)*
 
 **Parameters:**
 
@@ -237,7 +237,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[hasKey](../interfaces/icarbynestore.md#haskey)*
 
-*Defined in [lib/stores/memory.ts:144](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L144)*
+*Defined in [lib/stores/memory.ts:144](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L144)*
 
 **Parameters:**
 
@@ -257,7 +257,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[push](../interfaces/icarbynestore.md#push)*
 
-*Defined in [lib/stores/memory.ts:119](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L119)*
+*Defined in [lib/stores/memory.ts:119](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L119)*
 
 **Parameters:**
 
@@ -275,7 +275,7 @@ ___
 
 ▸ **setData**(id: *`string`*, value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`void`>
 
-*Defined in [lib/stores/memory.ts:130](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L130)*
+*Defined in [lib/stores/memory.ts:130](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L130)*
 
 **Parameters:**
 
@@ -295,7 +295,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[setKey](../interfaces/icarbynestore.md#setkey)*
 
-*Defined in [lib/stores/memory.ts:111](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L111)*
+*Defined in [lib/stores/memory.ts:111](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L111)*
 
 **Parameters:**
 
@@ -316,7 +316,7 @@ ___
 
 *Implementation of [ICarbyneStore](../interfaces/icarbynestore.md).[setRef](../interfaces/icarbynestore.md#setref)*
 
-*Defined in [lib/stores/memory.ts:73](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L73)*
+*Defined in [lib/stores/memory.ts:73](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L73)*
 
 **Parameters:**
 
@@ -337,7 +337,7 @@ ___
 
 **model**: *`object`*
 
-*Defined in [lib/stores/memory.ts:33](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L33)*
+*Defined in [lib/stores/memory.ts:33](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L33)*
 
 <a id="model.refs"></a>
 
@@ -345,7 +345,7 @@ ___
 
 **● refs**: *`object`*
 
-*Defined in [lib/stores/memory.ts:35](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L35)*
+*Defined in [lib/stores/memory.ts:35](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L35)*
 
 #### Type declaration
 
@@ -356,7 +356,7 @@ ___
 
 **● root**: *`null`* =  null
 
-*Defined in [lib/stores/memory.ts:34](https://github.com/allotropelabs/carbyne/blob/1ec1b73/lib/stores/memory.ts#L34)*
+*Defined in [lib/stores/memory.ts:34](https://github.com/allotropelabs/carbyne/blob/7530ecf/lib/stores/memory.ts#L34)*
 
 ___
 
