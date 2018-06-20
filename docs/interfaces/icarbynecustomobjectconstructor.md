@@ -24,7 +24,7 @@ The constructor for a [ICarbyneCustomObject](icarbynecustomobject.md).
 
 ⊕ **new ICarbyneCustomObjectConstructor**(data: *`any`*, _id?: * `undefined` &#124; `string`*): [ICarbyneCustomObject](icarbynecustomobject.md)
 
-*Defined in [lib/types.ts:362](https://github.com/allotropelabs/carbyne/blob/c51d30f/lib/types.ts#L362)*
+*Defined in [lib/types.ts:362](https://github.com/allotropelabs/carbyne/blob/82675ff/lib/types.ts#L362)*
 
 Create a custom object from the object `data`. `_id` is optional, and basically specifies, if the custom object is recorded in the database, _where_ it's recorded.
 
