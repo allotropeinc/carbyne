@@ -335,6 +335,19 @@ export interface ICarbyneStore {
 		id : string,
 		data : any
 	) : Promise<void>
+
+	/**
+	 * Returns whether the object `id` has the key `key`. This is used by
+	 * [[Carbyne.hasKey]].
+	 *
+	 * @param {string} id
+	 * @param {number | string} key
+	 * @returns {Promise<boolean>}
+	 */
+	hasKey (
+		id : string,
+		key : number | string
+	) : Promise<boolean>
 }
 
 /**

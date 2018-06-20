@@ -778,4 +778,22 @@ export class Carbyne {
 			data : 'root'
 		}
 	}
+
+	/**
+	 * Checks whether `obj` has the key `key`. Great for avoiding errors, since
+	 * usually trying to access a key that doesn't exist throws a huge error.
+	 *
+	 * @param obj
+	 * @param {number | string} key
+	 * @returns {Promise<void>}
+	 */
+	async hasKey (
+		obj : any,
+		key : number | string
+	) {
+		return await this.store.hasKey (
+			await Carbyne.resolveId ( obj ),
+			key
+		)
+	}
 }

@@ -140,4 +140,11 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	) {
 		delete ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj[ key ]
 	}
+
+	async hasKey (
+		id : string,
+		key : number | string
+	) {
+		return ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).hasOwnProperty ( key )
+	}
 }
