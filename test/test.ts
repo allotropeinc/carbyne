@@ -237,6 +237,21 @@ describe (
 						}
 					)
 
+					it (
+						'should support checking if keys exist',
+						async () => {
+							expect ( await db.hasKey (
+								'root',
+								'deleted'
+							) ).to.equal ( false )
+
+							expect ( await db.hasKey (
+								'root',
+								'bool'
+							) ).to.equal ( true )
+						}
+					)
+
 					let serialized : any
 
 					it (
