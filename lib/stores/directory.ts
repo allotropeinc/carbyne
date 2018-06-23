@@ -278,4 +278,14 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 			return false
 		}
 	}
+
+	async supportsKeys ( id : string ) {
+		try {
+			const type = await this.getType ( id )
+
+			return type === 'object' || type === 'array'
+		} catch {
+			return false
+		}
+	}
 }

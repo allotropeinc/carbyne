@@ -16,12 +16,40 @@ describe (
 					let db : Carbyne
 
 					it (
-						'should support fromObject',
+						'supports fromObject',
 						async () => {
 							db = await Carbyne.fromObject (
 								{},
 								cls
 							)
+						}
+					)
+
+					it (
+						'supports supportsKeys',
+						async () => {
+							expect ( await db.supportsKeys ( 'root' ) ).to.equal ( true )
+						}
+					)
+
+					it (
+						'supports clear',
+						async () => {
+							await db.clear ()
+						}
+					)
+
+					it (
+						'supports supportsKeys after clear',
+						async () => {
+							expect ( await db.supportsKeys ( 'root' ) ).to.equal ( false )
+						}
+					)
+
+					it (
+						'supports setRoot',
+						async () => {
+							await db.setRoot ( {} )
 						}
 					)
 
@@ -94,7 +122,7 @@ describe (
 					)
 
 					it (
-						'should store NaN',
+						'stores NaN',
 						async () => {
 							await db.setKey (
 								'root',
@@ -114,7 +142,7 @@ describe (
 					)
 
 					it (
-						'should store objects',
+						'stores objects',
 						async () => {
 							await db.setKey (
 								'root',
@@ -136,7 +164,7 @@ describe (
 					)
 
 					it (
-						'should store arrays',
+						'stores arrays',
 						async () => {
 							await db.setKey (
 								'root',
@@ -156,7 +184,7 @@ describe (
 					)
 
 					it (
-						'should store Symbols',
+						'stores Symbols',
 						async () => {
 							await db.setKey (
 								'root',
@@ -176,7 +204,7 @@ describe (
 					)
 
 					it (
-						'should store blobs',
+						'stores blobs',
 						async () => {
 							await db.setKey (
 								'root',
@@ -196,7 +224,7 @@ describe (
 					)
 
 					it (
-						'should support deleting keys',
+						'supports deleting keys',
 						async () => {
 							await db.setKey (
 								'root',
@@ -238,7 +266,7 @@ describe (
 					)
 
 					it (
-						'should support checking if keys exist',
+						'supports checking if keys exist',
 						async () => {
 							expect ( await db.hasKey (
 								'root',
@@ -255,7 +283,7 @@ describe (
 					let serialized : any
 
 					it (
-						'should support circular references',
+						'supports circular references',
 						async () => {
 							serialized = await db.toObject ()
 
@@ -270,7 +298,7 @@ describe (
 					)
 
 					it (
-						'should support circular references in child arrays',
+						'supports circular references in child arrays',
 						async () => {
 							await db.push (
 								serialized.array,
@@ -282,7 +310,7 @@ describe (
 					)
 
 					it (
-						'should support circular references in child objects',
+						'supports circular references in child objects',
 						async () => {
 							await db.setKey (
 								serialized.object,
@@ -295,7 +323,7 @@ describe (
 					)
 
 					it (
-						'should support multiple copies of one object',
+						'supports multiple copies of one object',
 						async () => {
 							await db.setKey (
 								serialized,
@@ -315,7 +343,7 @@ describe (
 					)
 
 					it (
-						'should support multiple copies of one array',
+						'supports multiple copies of one array',
 						async () => {
 							await db.setKey (
 								serialized,
@@ -334,7 +362,7 @@ describe (
 					)
 
 					it (
-						'should support multiple copies of one symbol',
+						'supports multiple copies of one symbol',
 						async () => {
 							await db.setKey (
 								serialized,
@@ -347,7 +375,7 @@ describe (
 					)
 
 					it (
-						'should support multiple copies of one blob',
+						'supports multiple copies of one blob',
 						async () => {
 							await db.setKey (
 								serialized,
@@ -368,7 +396,7 @@ describe (
 					)
 
 					it (
-						'should support copying a blob',
+						'supports copying a blob',
 						async () => {
 							await db.setKey (
 								serialized,
@@ -391,7 +419,7 @@ describe (
 					)
 
 					it (
-						'should support custom objects',
+						'supports custom objects',
 						async () => {
 							const cls = class implements ICarbyneCustomObject {
 								public _id : string | undefined

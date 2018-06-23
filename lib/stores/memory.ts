@@ -147,4 +147,10 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 	) {
 		return ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj.hasOwnProperty ( key )
 	}
+
+	async supportsKeys ( id : string ) {
+		const obj = ( <TCarbyneRefInternalObject> await this.getRef ( id ) ).obj
+
+		return !!obj && typeof obj === 'object'
+	}
 }

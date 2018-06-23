@@ -348,6 +348,15 @@ export interface ICarbyneStore {
 		id : string,
 		key : number | string
 	) : Promise<boolean>
+
+	/**
+	 * Test if an object supports [[Carbyne.getKey]]/[[Carbyne.setKey]]. See
+	 * [[Carbyne.supportsKeys]].
+	 *
+	 * @param {string} id The ID of the object to check.
+	 * @returns {Promise<boolean>}
+	 */
+	supportsKeys ( id : string ) : Promise<boolean>
 }
 
 /**

@@ -32,7 +32,11 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
 <details><summary>`npm test` output</summary>
 <pre><code>  Carbyne
     DirectoryStore
-      ✓ should support fromObject
+      ✓ supports fromObject
+      ✓ supports supportsKeys
+      ✓ supports clear
+      ✓ supports supportsKeys after clear
+      ✓ supports setRoot
       ✓ should store booleans
       ✓ should store numbers
       ✓ should store strings
@@ -40,23 +44,28 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ should store undefined
       ✓ should store Infinity
       ✓ should store -Infinity
-      ✓ should store NaN
-      ✓ should store objects
-      ✓ should store arrays
-      ✓ should store Symbols
-      ✓ should store blobs
-      ✓ should support deleting objects
-      ✓ should support circular references
-      ✓ should support circular references in child arrays
-      ✓ should support circular references in child objects
-      ✓ should support multiple copies of one object
-      ✓ should support multiple copies of one array
-      ✓ should support multiple copies of one symbol
-      ✓ should support multiple copies of one blob
-      ✓ should support copying a blob
-      ✓ should support custom objects
+      ✓ stores NaN
+      ✓ stores objects
+      ✓ stores arrays
+      ✓ stores Symbols
+      ✓ stores blobs
+      ✓ supports deleting keys
+      ✓ supports checking if keys exist
+      ✓ supports circular references
+      ✓ supports circular references in child arrays
+      ✓ supports circular references in child objects
+      ✓ supports multiple copies of one object
+      ✓ supports multiple copies of one array
+      ✓ supports multiple copies of one symbol
+      ✓ supports multiple copies of one blob
+      ✓ supports copying a blob
+      ✓ supports custom objects
     MemoryStore
-      ✓ should support fromObject
+      ✓ supports fromObject
+      ✓ supports supportsKeys
+      ✓ supports clear
+      ✓ supports supportsKeys after clear
+      ✓ supports setRoot
       ✓ should store booleans
       ✓ should store numbers
       ✓ should store strings
@@ -64,24 +73,25 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ should store undefined
       ✓ should store Infinity
       ✓ should store -Infinity
-      ✓ should store NaN
-      ✓ should store objects
-      ✓ should store arrays
-      ✓ should store Symbols
-      ✓ should store blobs
-      ✓ should support deleting objects
-      ✓ should support circular references
-      ✓ should support circular references in child arrays
-      ✓ should support circular references in child objects
-      ✓ should support multiple copies of one object
-      ✓ should support multiple copies of one array
-      ✓ should support multiple copies of one symbol
-      ✓ should support multiple copies of one blob
-      ✓ should support copying a blob
-      ✓ should support custom objects
+      ✓ stores NaN
+      ✓ stores objects
+      ✓ stores arrays
+      ✓ stores Symbols
+      ✓ stores blobs
+      ✓ supports deleting keys
+      ✓ supports checking if keys exist
+      ✓ supports circular references
+      ✓ supports circular references in child arrays
+      ✓ supports circular references in child objects
+      ✓ supports multiple copies of one object
+      ✓ supports multiple copies of one array
+      ✓ supports multiple copies of one symbol
+      ✓ supports multiple copies of one blob
+      ✓ supports copying a blob
+      ✓ supports custom objects
 
 
-  46 passing (91ms)</code></pre>
+  56 passing (113ms)</code></pre>
 </details><br />
 
 You can use the TypeScript typings provided, or [read the docs](https://allotropelabs.github.io/carbyne/). There's even a handy [Getting Started guide](https://github.com/allotropelabs/carbyne/wiki/Getting-Started-with-Carbyne)!

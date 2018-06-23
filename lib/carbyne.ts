@@ -249,11 +249,14 @@ export class Carbyne {
 	 *
 	 * @param obj The object to serialize. Can be anything, honestly.
 	 * @param {string} id The ID to give the new object. This is important.
+	 * @param {boolean} clearCache Whether to remove the ID being serialized
+	 * from the cache.
 	 * @returns {Promise<TCarbyneValue>} The serialized object.
 	 */
 	protected async serialize (
 		obj : any,
-		id : string
+		id : string,
+		clearCache : boolean = true
 	) : Promise<TCarbyneValue> {
 		const type = await this.getType ( obj )
 
@@ -280,8 +283,12 @@ export class Carbyne {
 		}
 
 		if ( objTypes[ <TCarbyneTypeObj> type ] || this.customObjects.hasOwnProperty ( type ) ) {
-			if ( this.serializeCache[ obj._id ] ) {
-				return this.serializeCache[ obj._id ]
+			if ( this.serializeCache.hasOwnProperty ( obj._id ) ) {
+				if ( !clearCache ) {
+					return this.serializeCache[ obj._id ]
+				} else {
+					delete this.serializeCache[ obj._id ]
+				}
 			}
 		}
 
@@ -310,7 +317,8 @@ export class Carbyne {
 				) => {
 					( <any> ( <TCarbyneRefInternalObject | TCarbyneRefInternalArray> newObj ).obj )[ key ] = await this.serialize (
 						value,
-						await this.store.genID ()
+						await this.store.genID (),
+						false
 					)
 				}
 
@@ -565,10 +573,7 @@ export class Carbyne {
 		await this.store.clear ()
 
 		if ( newRoot ) {
-			await this.serialize (
-				newRoot,
-				'root'
-			)
+			await this.setRoot ( newRoot )
 		}
 	}
 
@@ -786,6 +791,34 @@ export class Carbyne {
 		return await this.store.hasKey (
 			await Carbyne.resolveId ( obj ),
 			key
+		)
+	}
+
+	/**
+	 * Checks if an object supports keys, such as [[Carbyne.getKey]] and
+	 * [[Carbyne.setKey]]. Useful for checking if, for example, `'root'` exists
+	 * and is usable (it is not on initialization).
+	 *
+	 * @param {any} obj The object to check.
+	 * @returns {Promise<boolean>} Whether the object supports keys.
+	 */
+	async supportsKeys ( obj : any ) {
+		const id = await Carbyne.resolveId ( obj )
+
+		return await this.store.supportsKeys ( id )
+	}
+
+	/**
+	 * Sets the root of the database to `obj`. [[Carbyne.clear]] is preferred as
+	 * it also cleans up orphaned objects.
+	 *
+	 * @param obj
+	 * @returns {Promise<void>}
+	 */
+	async setRoot ( obj : any ) {
+		await this.serialize (
+			obj,
+			'root'
 		)
 	}
 }
