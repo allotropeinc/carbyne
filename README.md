@@ -37,13 +37,13 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ supports clear
       ✓ supports supportsKeys after clear
       ✓ supports setRoot
-      ✓ should store booleans
-      ✓ should store numbers
-      ✓ should store strings
-      ✓ should store null
-      ✓ should store undefined
-      ✓ should store Infinity
-      ✓ should store -Infinity
+      ✓ stores booleans
+      ✓ stores numbers
+      ✓ stores strings
+      ✓ stores null
+      ✓ stores undefined
+      ✓ stores Infinity
+      ✓ stores -Infinity
       ✓ stores NaN
       ✓ stores objects
       ✓ stores arrays
@@ -66,13 +66,13 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ supports clear
       ✓ supports supportsKeys after clear
       ✓ supports setRoot
-      ✓ should store booleans
-      ✓ should store numbers
-      ✓ should store strings
-      ✓ should store null
-      ✓ should store undefined
-      ✓ should store Infinity
-      ✓ should store -Infinity
+      ✓ stores booleans
+      ✓ stores numbers
+      ✓ stores strings
+      ✓ stores null
+      ✓ stores undefined
+      ✓ stores Infinity
+      ✓ stores -Infinity
       ✓ stores NaN
       ✓ stores objects
       ✓ stores arrays
@@ -91,7 +91,7 @@ Hey, welcome to the Carbyne repo! I created Carbyne out of frustration after sea
       ✓ supports custom objects
 
 
-  56 passing (113ms)</code></pre>
+  56 passing (128ms)</code></pre>
 </details><br />
 
 You can use the TypeScript typings provided, or [read the docs](https://allotropelabs.github.io/carbyne/). There's even a handy [Getting Started guide](https://github.com/allotropelabs/carbyne/wiki/Getting-Started-with-Carbyne)!

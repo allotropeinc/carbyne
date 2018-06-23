@@ -59,7 +59,7 @@ describe (
 						value : any
 					) {
 						it (
-							`should store ${title}`,
+							`stores ${title}`,
 							async () => {
 								await db.setKey (
 									'root',
