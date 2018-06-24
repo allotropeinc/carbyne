@@ -6,8 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "ts-mocha test/test.ts -r chai/register-expect",
-    "build": "sh build.sh",
-    "publish": "sh publish.sh"
+    "preversion" : "npm test",
+    "version" : "sh build.sh && git add -A .",
+    "postversion" : "git push && git push --tags && sh publish.sh"
   },
   "author": "LoganDark",
   "license": "MPL-2.0",
