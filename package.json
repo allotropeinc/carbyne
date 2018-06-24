@@ -1,14 +1,14 @@
 {
   "name": "carbyne-db",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "An actual object-oriented database for JavaScript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "ts-mocha test/test.ts -r chai/register-expect",
-    "preversion" : "npm test",
-    "version" : "sh build.sh && git add -A .",
-    "postversion" : "git push && sh publish.sh"
+    "preversion": "npm test",
+    "version": "sh build.sh && git add -A .",
+    "postversion": "git push && sh publish.sh"
   },
   "author": "LoganDark",
   "license": "MPL-2.0",
