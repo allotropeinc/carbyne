@@ -8,7 +8,7 @@
     "test": "ts-mocha test/test.ts -r chai/register-expect",
     "preversion" : "npm test",
     "version" : "sh build.sh && git add -A .",
-    "postversion" : "git push && git push --tags && sh publish.sh"
+    "postversion" : "git push && sh publish.sh"
   },
   "author": "LoganDark",
   "license": "MPL-2.0",
