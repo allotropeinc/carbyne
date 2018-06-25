@@ -671,7 +671,7 @@ export class Carbyne {
 	 */
 	async push (
 		obj : any,
-		value : string | number
+		value : any
 	) {
 		const id = await Carbyne.resolveId ( obj )
 
