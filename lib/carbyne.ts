@@ -680,7 +680,7 @@ export class Carbyne {
 			await this.store.genID ()
 		)
 
-		await this.store.push (
+		const index = await this.store.push (
 			id,
 			serialized
 		)
@@ -688,6 +688,8 @@ export class Carbyne {
 		if ( this.deserializeCache && this.deserializeCache.hasOwnProperty ( id ) ) {
 			( <TCarbyneDesArray> this.deserializeCache[ id ] ).push ( await this.deserialize ( serialized ) )
 		}
+
+		return index
 	}
 
 	/**

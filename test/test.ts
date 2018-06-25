@@ -298,6 +298,32 @@ describe (
 					)
 
 					it (
+						'supports push',
+						async () => {
+							const array = await db.getKey (
+								'root',
+								'array'
+							)
+
+							const index = await db.push (
+								array,
+								'string'
+							)
+
+							expect ( index ).to.equal ( 1 )
+
+							expect (
+								await db.toObject (
+									await db.getKey (
+										array,
+										index
+									)
+								)
+							).to.equal ( 'string' )
+						}
+					)
+
+					it (
 						'supports circular references in child arrays',
 						async () => {
 							await db.push (

@@ -215,11 +215,15 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		id : string,
 		value : TCarbyneValue
 	) {
+		const index = await this.getLength ( id )
+
 		await this.setKey (
 			id,
-			await this.getLength ( id ),
+			index,
 			value
 		)
+
+		return index
 	}
 
 	async getData ( id : string ) {

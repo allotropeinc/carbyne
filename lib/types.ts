@@ -310,11 +310,12 @@ export interface ICarbyneStore {
 	 *
 	 * @param {string} id
 	 * @param {TCarbyneValue} value
+	 * @returns {number} The index of the newly pushed object.
 	 */
 	push (
 		id : string,
 		value : TCarbyneValue
-	) : Promise<void>
+	) : Promise<number>
 
 	/**
 	 * Gets the data of a custom object. This is used by [[Carbyne.getData]].

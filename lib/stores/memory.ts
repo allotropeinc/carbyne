@@ -120,7 +120,11 @@ export class CarbyneMemoryStore implements ICarbyneStore {
 		id : string,
 		value : TCarbyneValue
 	) {
-		( <TCarbyneRefInternalArray> await this.getRef ( id ) ).obj.push ( value )
+		const obj = ( <TCarbyneRefInternalArray> await this.getRef ( id ) ).obj
+
+		obj.push ( value )
+
+		return obj.length - 1
 	}
 
 	async getData ( id : string ) {
