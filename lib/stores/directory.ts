@@ -1,6 +1,5 @@
 import * as msgpack                                      from 'msgpack-lite'
 import * as path                                         from 'path'
-import * as promisify                                    from 'util.promisify'
 import * as uuid                                         from 'uuid'
 import { ICarbyneStore, TCarbyneTypeObj, TCarbyneValue } from '../index'
 
@@ -12,6 +11,7 @@ const pifall : any = require ( 'pifall' )
 const fs = require ( 'graceful-fs' )
 pifall ( fs )
 
+const promisify = require ( 'util.promisify' )
 const mkdirpAsync = promisify ( require ( 'mkdirp' ) )
 const emptyFolder = require ( 'empty-folder' )
 
