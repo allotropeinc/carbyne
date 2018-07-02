@@ -1,12 +1,53 @@
-import * as fs                                           from 'fs-extra'
 import * as msgpack                                      from 'msgpack-lite'
 import * as path                                         from 'path'
+import * as promisify                                    from 'util.promisify'
 import * as uuid                                         from 'uuid'
 import { ICarbyneStore, TCarbyneTypeObj, TCarbyneValue } from '../index'
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+type specialSnowflakeFs = {
+	[ key : string ] : ( ... args : any[] ) => Promise<any>
+}
+
+const pifall : any = require ( 'pifall' )
+const fs = require ( 'graceful-fs' )
+pifall ( fs )
+
+const mkdirpAsync = promisify ( require ( 'mkdirp' ) )
+const emptyFolder = require ( 'empty-folder' )
+
+// I will hunt down whoever made this function and smack them with a balloon.
+// https://lmgtfy.com/?q=node+callback+standard
+const emptyFolderAsync = (
+	path : string,
+	remove : boolean
+) => {
+	return new Promise ( (
+		accept,
+		reject
+	) => {
+		emptyFolder (
+			path,
+			remove,
+			(
+				obj : {
+					error : Error,
+					removed : string[],
+					failed : string[]
+				}
+			) => {
+				if ( obj.error || obj.failed.length > 0 ) {
+					reject ( obj.error || obj.failed )
+				} else {
+					accept ( obj.removed )
+				}
+			}
+		)
+	} )
+}
 
 /**
  * A store that uses a directory to store data rather than memory or a single
@@ -74,7 +115,10 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 	}
 
 	async clear () {
-		await fs.emptyDir ( this.dirName )
+		await emptyFolderAsync (
+			this.dirName,
+			false
+		)
 	}
 
 	async genID () {
@@ -87,11 +131,11 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 	) {
 		const dir = await this.getObjectDir ( id )
 
-		await fs.mkdirp (
+		await mkdirpAsync (
 			dir
 		)
 
-		await fs.writeFile (
+		await fs.writeFileAsync (
 			path.join (
 				dir,
 				'type'
@@ -101,7 +145,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		)
 
 		if ( obj.type === 'object' || obj.type === 'array' ) {
-			await fs.mkdirp (
+			await mkdirpAsync (
 				path.join (
 					dir,
 					'keys'
@@ -144,7 +188,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 
 				break
 			default:
-				await fs.writeFile (
+				await fs.writeFileAsync (
 					path.join (
 						await this.getObjectDir ( id ),
 						'data'
@@ -159,7 +203,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		key : number | string
 	) {
 		return await CarbyneDirectoryStore.unpack (
-			await fs.readFile (
+			await fs.readFileAsync (
 				path.join (
 					await this.getObjectDir ( id ),
 					'keys',
@@ -179,9 +223,9 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 			'keys'
 		)
 
-		await fs.mkdirp ( keysDir )
+		await mkdirpAsync ( keysDir )
 
-		await fs.writeFile (
+		await fs.writeFileAsync (
 			path.join (
 				keysDir,
 				key.toString ()
@@ -191,7 +235,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 	}
 
 	async getType ( id : string ) {
-		return <TCarbyneTypeObj> await fs.readFile (
+		return <TCarbyneTypeObj> await fs.readFileAsync (
 			path.join (
 				await this.getObjectDir ( id ),
 				'type'
@@ -205,7 +249,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 	}
 
 	async getKeys ( id : string ) {
-		return await fs.readdir ( path.join (
+		return await fs.readdirAsync ( path.join (
 			await this.getObjectDir ( id ),
 			'keys'
 		) )
@@ -228,7 +272,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 
 	async getData ( id : string ) {
 		return await CarbyneDirectoryStore.unpack (
-			await fs.readFile (
+			await fs.readFileAsync (
 				path.join (
 					await this.getObjectDir ( id ),
 					'data'
@@ -241,7 +285,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		id : string,
 		value : TCarbyneValue
 	) {
-		await fs.writeFile (
+		await fs.writeFileAsync (
 			path.join (
 				await this.getObjectDir ( id ),
 				'data'
@@ -254,7 +298,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		id : string,
 		key : number | string
 	) {
-		await fs.unlink (
+		await fs.unlinkAsync (
 			path.join (
 				await this.getObjectDir ( id ),
 				'keys',
@@ -268,7 +312,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		key : number | string
 	) {
 		try {
-			await fs.access (
+			await fs.accessAsync (
 				path.join (
 					await this.getObjectDir ( id ),
 					'keys',
