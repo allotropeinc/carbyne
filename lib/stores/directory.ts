@@ -8,10 +8,6 @@ import { ICarbyneStore, TCarbyneTypeObj, TCarbyneValue } from '../index'
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-type specialSnowflakeFs = {
-	[ key : string ] : ( ... args : any[] ) => Promise<any>
-}
-
 const pifall : any = require ( 'pifall' )
 const fs = require ( 'graceful-fs' )
 pifall ( fs )
