@@ -1,7 +1,7 @@
 import { expect }                                                                                               from 'chai'
 import { describe, it }                                                                                         from 'mocha'
 import * as path                                                                                                from 'path'
-import { Carbyne, CarbyneBlob, CarbyneDirectoryStore, CarbyneMemoryStore, ICarbyneCustomObject, ICarbyneStore } from '../lib/index'
+import { Carbyne, CarbyneBlob, CarbyneDirectoryStore, CarbyneMemoryStore, ICarbyneCustomObject, ICarbyneStore } from '../lib/'
 
 describe (
 	'Carbyne',
