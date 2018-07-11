@@ -208,8 +208,16 @@ export type TCarbyneMemoryModel = {
 }
 
 /**
- * The interface you need to implement in a class passed to
- * [[Carbyne.constructor]].
+ * This interface implements a Carbyne method of storage and is passed to
+ * [[Carbyne.constructor]] to instruct Carbyne how to store its data. Any class
+ * implementing these methods is accepted by Carbyne.
+ *
+ * A Carbyne store is expected to support concurrency because
+ * [[Carbyne.serialize]] and [[Carbyne.deserialize]] perform parallel accesses.
+ *
+ * It is your responsibility to fully test your store. Refer to the Carbyne
+ * tests if you need an inspiration. Refer to the existing Carbyne stores for
+ * examples of fully tested and working stores.
  */
 export interface ICarbyneStore {
 	/**

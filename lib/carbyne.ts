@@ -322,6 +322,8 @@ export class Carbyne {
 					)
 				}
 
+				const promises = []
+
 				if ( type === 'object' ) {
 					( <TCarbyneRefInternalObject> newObj ).obj = {}
 
@@ -338,23 +340,31 @@ export class Carbyne {
 					) {
 						const value = obj[ key ]
 
-						await addKV (
-							key,
-							value
+						promises.push (
+							addKV (
+								key,
+								value
+							)
 						)
 					}
 				} else if ( type === 'array' ) {
 					( <TCarbyneRefInternalArray> newObj ).obj = []
 
 					for ( let i = 0, value ; value = obj[ i ], i < obj.length ; i++ ) {
-						await addKV (
-							i,
-							value
+						promises.push (
+							addKV (
+								i,
+								value
+							)
 						)
 					}
 				} else {
-					( <TCarbyneRefInternalCustom> newObj ).data = await obj.serialize ()
+					promises.push ( ( async () => {
+						( <TCarbyneRefInternalCustom> newObj ).data = await obj.serialize ()
+					} ) () )
 				}
+
+				await Promise.all ( promises )
 
 				await this.store.setRef (
 					id,
@@ -452,6 +462,7 @@ export class Carbyne {
 
 		if ( obj.type === 'reference' ) {
 			const id = obj.data
+			const promises = []
 
 			if ( !this.deserializeCache.hasOwnProperty ( id ) ) {
 				const type = await this.store.getType ( id )
@@ -469,12 +480,14 @@ export class Carbyne {
 
 						i++
 					) {
-						const value = await this.store.getKey (
-							id,
-							key
-						)
+						promises.push ( ( async () => {
+							const value = await this.store.getKey (
+								id,
+								key
+							)
 
-						newObj[ key ] = await this.deserialize ( value )
+							newObj[ key ] = await this.deserialize ( value )
+						} ) () )
 					}
 
 					Object.defineProperty (
@@ -494,12 +507,14 @@ export class Carbyne {
 
 						i++
 					) {
-						value = await this.store.getKey (
-							id,
-							i
-						)
+						promises.push ( ( async () => {
+							value = await this.store.getKey (
+								id,
+								i
+							)
 
-						newObj.push ( await this.deserialize ( value ) )
+							newObj.push ( await this.deserialize ( value ) )
+						} ) () )
 					}
 
 					Object.defineProperty (
@@ -513,12 +528,16 @@ export class Carbyne {
 					this.symbolIds[ symbol ] = id
 					this.deserializeCache[ id ] = symbol
 				} else if ( this.customObjects[ type ] ) {
-					this.deserializeCache[ id ] = <ICarbyneCustomObject> new this.customObjects[ type ] (
-						await this.store.getData ( id ),
-						id
-					)
+					promises.push ( ( async () => {
+						this.deserializeCache[ id ] = <ICarbyneCustomObject> new this.customObjects[ type ] (
+							await this.store.getData ( id ),
+							id
+						)
+					} ) () )
 				}
 			}
+
+			await Promise.all ( promises )
 
 			return this.deserializeCache[ id ]
 		} else {
