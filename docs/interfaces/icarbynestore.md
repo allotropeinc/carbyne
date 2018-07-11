@@ -2,7 +2,11 @@
 
 # Interface: ICarbyneStore
 
-The interface you need to implement in a class passed to [Carbyne.constructor](../classes/carbyne.md#constructor).
+This interface implements a Carbyne method of storage and is passed to [Carbyne.constructor](../classes/carbyne.md#constructor) to instruct Carbyne how to store its data. Any class implementing these methods is accepted by Carbyne.
+
+A Carbyne store is expected to support concurrency because [Carbyne.serialize](../classes/carbyne.md#serialize) and [Carbyne.deserialize](../classes/carbyne.md#deserialize) perform parallel accesses.
+
+It is your responsibility to fully test your store. Refer to the Carbyne tests if you need an inspiration. Refer to the existing Carbyne stores for examples of fully tested and working stores.
 
 ## Hierarchy
 
@@ -42,7 +46,7 @@ The interface you need to implement in a class passed to [Carbyne.constructor](.
 
 ▸ **clear**(): `Promise`<`void`>
 
-*Defined in [lib/types.ts:221](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L221)*
+*Defined in [lib/types.ts:229](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L229)*
 
 Clears the database, immediately and irreversibly dropping all data. [Carbyne.fromObject](../classes/carbyne.md#fromobject) uses this.
 
@@ -55,7 +59,7 @@ ___
 
 ▸ **delKey**(id: *`string`*, key: * `number` &#124; `string`*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:276](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L276)*
+*Defined in [lib/types.ts:284](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L284)*
 
 Deletes a key from an object. This is used by [Carbyne.delKey](../classes/carbyne.md#delkey).
 
@@ -75,7 +79,7 @@ ___
 
 ▸ **genID**(): `Promise`<`string`>
 
-*Defined in [lib/types.ts:229](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L229)*
+*Defined in [lib/types.ts:237](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L237)*
 
 Generates a new ID to use for objects. The default implementation simply calls `uuid.v4 ()` and calls it a day.
 
@@ -88,7 +92,7 @@ ___
 
 ▸ **getData**(id: *`string`*): `Promise`<`any`>
 
-*Defined in [lib/types.ts:326](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L326)*
+*Defined in [lib/types.ts:334](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L334)*
 
 Gets the data of a custom object. This is used by [Carbyne.getData](../classes/carbyne.md#getdata).
 
@@ -107,7 +111,7 @@ ___
 
 ▸ **getKey**(id: *`string`*, key: * `number` &#124; `string`*): `Promise`<[TCarbyneValue](../#tcarbynevalue)>
 
-*Defined in [lib/types.ts:250](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L250)*
+*Defined in [lib/types.ts:258](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L258)*
 
 Gets the value of a key in an object. This is used by [Carbyne.getKey](../classes/carbyne.md#getkey).
 
@@ -127,7 +131,7 @@ ___
 
 ▸ **getKeys**(id: *`string`*): `Promise`<`string`[]>
 
-*Defined in [lib/types.ts:306](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L306)*
+*Defined in [lib/types.ts:314](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L314)*
 
 Gets the keys of an object specified by ID. This is used by [Carbyne.deserialize](../classes/carbyne.md#deserialize).
 
@@ -146,7 +150,7 @@ ___
 
 ▸ **getLength**(id: *`string`*): `Promise`<`number`>
 
-*Defined in [lib/types.ts:297](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L297)*
+*Defined in [lib/types.ts:305](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L305)*
 
 Gets the length of an array specified by ID. This is used by [Carbyne.deserialize](../classes/carbyne.md#deserialize).
 
@@ -165,7 +169,7 @@ ___
 
 ▸ **getType**(id: *`string`*): `Promise`<[TCarbyneTypeObj](../#tcarbynetypeobj)>
 
-*Defined in [lib/types.ts:288](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L288)*
+*Defined in [lib/types.ts:296](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L296)*
 
 Gets the type of an object specified by ID. This is used by [Carbyne.deserialize](../classes/carbyne.md#deserialize).
 
@@ -184,7 +188,7 @@ ___
 
 ▸ **hasKey**(id: *`string`*, key: * `number` &#124; `string`*): `Promise`<`boolean`>
 
-*Defined in [lib/types.ts:348](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L348)*
+*Defined in [lib/types.ts:356](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L356)*
 
 Returns whether the object `id` has the key `key`. This is used by [Carbyne.hasKey](../classes/carbyne.md#haskey).
 
@@ -204,7 +208,7 @@ ___
 
 ▸ **push**(id: *`string`*, value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`number`>
 
-*Defined in [lib/types.ts:315](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L315)*
+*Defined in [lib/types.ts:323](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L323)*
 
 Pushes an object to an array. This is used by [Carbyne.push](../classes/carbyne.md#push).
 
@@ -225,7 +229,7 @@ ___
 
 ▸ **setData**(id: *`string`*, data: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:335](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L335)*
+*Defined in [lib/types.ts:343](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L343)*
 
 Sets the data of a custom object. This is used by [Carbyne.setData](../classes/carbyne.md#setdata).
 
@@ -245,7 +249,7 @@ ___
 
 ▸ **setKey**(id: *`string`*, key: * `number` &#124; `string`*, value: *[TCarbyneValue](../#tcarbynevalue)*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:263](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L263)*
+*Defined in [lib/types.ts:271](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L271)*
 
 Sets the value of a key in an object. This is used by [Carbyne.setKey](../classes/carbyne.md#setkey).
 
@@ -266,7 +270,7 @@ ___
 
 ▸ **setRef**(id: *`string`*, obj: *`any`*): `Promise`<`void`>
 
-*Defined in [lib/types.ts:238](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L238)*
+*Defined in [lib/types.ts:246](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L246)*
 
 Sets a reference by ID. This is used by [Carbyne.serialize](../classes/carbyne.md#serialize).
 
@@ -286,7 +290,7 @@ ___
 
 ▸ **supportsKeys**(id: *`string`*): `Promise`<`boolean`>
 
-*Defined in [lib/types.ts:360](https://github.com/allotropelabs/carbyne/blob/a18f788/lib/types.ts#L360)*
+*Defined in [lib/types.ts:368](https://github.com/allotropelabs/carbyne/blob/31bb1be/lib/types.ts#L368)*
 
 Test if an object supports [Carbyne.getKey](../classes/carbyne.md#getkey)/[Carbyne.setKey](../classes/carbyne.md#setkey). See [Carbyne.supportsKeys](../classes/carbyne.md#supportskeys).
 
