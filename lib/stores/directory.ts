@@ -121,6 +121,31 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		return uuid.v4 ()
 	}
 
+	protected static async writeFile (
+		path : string,
+		data : string | Buffer
+	) {
+		if ( typeof data === 'string' ) {
+			data = Buffer.from (
+				data,
+				'utf8'
+			)
+		}
+
+		while ( true ) {
+			await fs.writeFileAsync (
+				path,
+				data
+			)
+
+			const read : Buffer = await fs.readFileAsync ( path )
+
+			if ( read.equals ( data ) ) {
+				break
+			}
+		}
+	}
+
 	async setRef (
 		id : string,
 		obj : any
@@ -131,13 +156,12 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 			dir
 		)
 
-		await fs.writeFileAsync (
+		await CarbyneDirectoryStore.writeFile (
 			path.join (
 				dir,
 				'type'
 			),
-			obj.type,
-			'utf8'
+			obj.type
 		)
 
 		if ( obj.type === 'object' || obj.type === 'array' ) {
@@ -184,7 +208,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 
 				break
 			default:
-				await fs.writeFileAsync (
+				await CarbyneDirectoryStore.writeFile (
 					path.join (
 						await this.getObjectDir ( id ),
 						'data'
@@ -221,7 +245,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 
 		await mkdirpAsync ( keysDir )
 
-		await fs.writeFileAsync (
+		await CarbyneDirectoryStore.writeFile (
 			path.join (
 				keysDir,
 				key.toString ()
@@ -281,7 +305,7 @@ export class CarbyneDirectoryStore implements ICarbyneStore {
 		id : string,
 		value : TCarbyneValue
 	) {
-		await fs.writeFileAsync (
+		await CarbyneDirectoryStore.writeFile (
 			path.join (
 				await this.getObjectDir ( id ),
 				'data'
