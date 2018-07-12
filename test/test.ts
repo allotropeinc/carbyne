@@ -324,6 +324,20 @@ describe (
 					)
 
 					it (
+						'supports length',
+						async () => {
+							const array = await db.getKey (
+								'root',
+								'array'
+							)
+
+							const length = await db.getLength ( array )
+
+							expect ( length ).to.equal ( 2 )
+						}
+					)
+
+					it (
 						'supports circular references in child arrays',
 						async () => {
 							await db.push (

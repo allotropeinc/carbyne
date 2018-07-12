@@ -842,4 +842,14 @@ export class Carbyne {
 			'root'
 		)
 	}
+
+	/**
+	 * Returns the number of keys in `obj`. Only really useful with arrays.
+	 *
+	 * @param obj
+	 * @returns {Promise<void>}
+	 */
+	async getLength ( obj : any ) {
+		return await this.store.getLength ( await Carbyne.resolveId ( obj ) )
+	}
 }
