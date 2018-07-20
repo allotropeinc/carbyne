@@ -852,4 +852,78 @@ export class Carbyne {
 	async getLength ( obj : any ) {
 		return await this.store.getLength ( await Carbyne.resolveId ( obj ) )
 	}
+
+	/**
+	 * Like [[Carbyne.getKey]] but with less function nesting hell. This
+	 * traverses, using `obj` as root, down the object using the keys `keys`.
+	 * Turns this (`{root}.key.value[0]`):
+	 *
+	 * ```typescript
+	 * await db.getKey (
+	 *     await db.getKey (
+	 *         await db.getKey (
+	 *             'root',
+	 *             'key'
+	 *         ),
+	 *         'value'
+	 *     ),
+	 *     0
+	 * )
+	 * ```
+	 *
+	 * into this:
+	 *
+	 * ```typescript
+	 * await db.getKeys (
+	 *     'root',
+	 *     [
+	 *         'key',
+	 *         'value',
+	 *         0
+	 *     ]
+	 * )
+	 * ```
+	 *
+	 * @param obj
+	 * @param {(number | string)[]} keys
+	 * @returns {Promise<any>}
+	 */
+	async getKeys (
+		obj : any,
+		keys : ( number | string )[]
+	) {
+		while ( keys.length > 0 ) {
+			obj = await this.getKey (
+				obj,
+				<string | number> keys.shift ()
+			)
+		}
+
+		return obj
+	}
+
+	/**
+	 * Returns an array of [[TCarbyneValue]]s containing obj[key] for every
+	 * `key` in `keys`. These are retrieved in parallel. Retrieves all keys from
+	 * the same object.
+	 *
+	 * @param obj
+	 * @param {(number | string)[]} keys
+	 * @returns {Promise<void>}
+	 */
+	async getKeysParallel (
+		obj : any,
+		keys : ( number | string )[]
+	) {
+		const promises = []
+
+		for ( const key of keys ) {
+			promises.push ( this.getKey (
+				obj,
+				key
+			) )
+		}
+
+		return await Promise.all ( promises )
+	}
 }

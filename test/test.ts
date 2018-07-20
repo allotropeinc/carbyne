@@ -338,6 +338,35 @@ describe (
 					)
 
 					it (
+						'supports getKeys',
+						async () => {
+							expect ( await db.toObject ( await db.getKeys (
+								'root',
+								[
+									'array',
+									0
+								]
+							) ) ).to.equal ( 'Hello, World!' )
+						}
+					)
+
+					it (
+						'supports getKeysParallel',
+						async () => {
+							const [ array, undef ] = await db.getKeysParallel (
+								'root',
+								[
+									'array',
+									'undefined'
+								]
+							)
+
+							expect ( await db.toObject ( array ) ).to.be.an ( 'array' ).with.length ( 2 )
+							expect ( await db.toObject ( undef ) ).to.equal ( undefined )
+						}
+					)
+
+					it (
 						'supports circular references in child arrays',
 						async () => {
 							await db.push (
