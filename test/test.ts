@@ -26,6 +26,13 @@ describe (
 					)
 
 					it (
+						'supports toObject',
+						async () => {
+							expect ( await db.toObject () ).to.be.an ( 'object' )
+						}
+					)
+
+					it (
 						'supports supportsKeys',
 						async () => {
 							expect ( await db.supportsKeys ( 'root' ) ).to.equal ( true )

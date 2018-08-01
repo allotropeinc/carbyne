@@ -33,7 +33,7 @@
     "typescript": "^2.9.2"
   },
   "directories": {
-    "doc": "doc",
+    "doc": "docs",
     "lib": "lib",
     "test": "test"
   },
@@ -44,5 +44,18 @@
   "bugs": {
     "url": "https://github.com/allotropelabs/carbyne/issues"
   },
-  "homepage": "https://github.com/allotropelabs/carbyne#readme"
+  "homepage": "https://github.com/allotropelabs/carbyne#readme",
+  "keywords": [
+    "db",
+    "database",
+    "carbyne",
+    "nosql",
+    "typescript",
+    "ts",
+    "async",
+    "await",
+    "promise",
+    "asynchronous",
+    "fsdb"
+  ]
 }
